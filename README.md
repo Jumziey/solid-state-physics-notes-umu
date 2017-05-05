@@ -1,2 +1,1 @@
-# solid-state-physics-notes-umu
-notes from solid state physics course on umu 2016
+[![PDF Status](https://www.sharelatex.com/github/repos/antoneri/tex/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/antoneri/tex/builds/latest/output.pdf)
