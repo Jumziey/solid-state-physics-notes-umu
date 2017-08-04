@@ -439,11 +439,103 @@ We also have to note we haven't looked into the atomic factor at all. It could d
 	\label{fig:hcp}
 \end{figure}
 
+\newpage
 \section{Diamagnetic and paramagnetism}
 \subsection{Introduction}
+The increase in a magnetic field applied to any material\footnote{referred to as $\mathbf{H}$} causes an induced electromotive force, which in turn accelerates electrons in the material. Then according to Lenz's law the resulting electric current is such that it reduces the magnetic field applied inside the material, one also say that the magnetic field is ``screened'' from the material.
+
+What's more interesting is that this current actually still exist even if the magnetic field is held at a constant value\footnote{We will explain this phenomenon later.}. If this does indeed happen in a material, then the material is \emph{diamagetic}. Note that the current creates a magnetic field, Denoted as $\mathbf{M}$, which works against the applied magnetic field, $\mathbf{H}$.
+
+If a material posses atoms with a permanent magnetic dipole moment\footnote{Think bar magnets.}, then the diamagnetic effects are usually very small in comparison to the \emph{paramagnetic} effects. The paramagnetic effect creates a magnetization, $\mathbf{M}$, which works with the applied magnetic field, $\mathbf{H}$. 
+
+We can relate the magnetization of the material, $\mathbf{M}$, with the applied magnetic field, $\mathbf{H}$ through the magnetic susceptibility, $\chi$, of the material as 
+\begin{equation}
+	\mathbf{M} = \chi \mathbf{H}.
+\end{equation}
+From this we can deduce the sign of the magnetic susceptibility will be positive for paramagnetic materials and negative for diamagnetic materials. 
+
 \subsection{Paramagnetism}
 \subsubsection{The origin of permanent dipole moments}
+From ampere's law we can deduce an equation for the magnetic dipole moment, $\pmb{\mu}$, to be
+\begin{equation}
+	\pmb{\mu} = i \pmb{a}.
+\end{equation}
+Where $\pmb{a}$ is the area vector of the loop, directed so that the current is clockwise when looking along $\pmb{a}$. and $i$ is the electric current.
+
+To start with we can look at the dipole moment of a electron going around it's nucleus with a period of $\tau$, and a radius $r$. The current is then 
+\begin{equation}
+	i = (-e)/\tau = -e v/2\pi r.
+\end{equation}
+Where the negative sign comes from the fact that the electron moves in the opposite direction of the current\footnote{Thank you convention for making everything confusing!}. Rewriting the dipole moment with this current we get
+\begin{equation}
+	\pmb{\mu} = - \frac{ev}{2\pi r} \pmb{a}.
+\end{equation}
+Now we can use the angular moment of the electron which is $\hslash \pmb{I}$. The $\hslash$ is just convention, as we know constants can be multiplied in and divided away as long as it's done in a balanced matter. If we see that $|\pmb{a}| = \pi r^2$, $|\hslash| = mvr$ and that $\pmb{a}$ and $\pmb{I}$ is directed in the same direction, we can rewrite the dipole moment as
+\begin{equation}
+	\pmb{\mu} = - \frac{e\hslash}{2m} \pmb{I}.
+	\label{eq:orbital_momentum}
+\end{equation}
+We can then define the constant part as the Bohr magneton, $\mu_B$, i.e.
+\begin{equation}
+	\mu_B = \frac{e\hslash}{2m} = 9.27 \times 10^{-24} J T^{-1}.
+\end{equation}
+
+Now we've used the classical model of an electron spinning around its nucleus to figure out the dipole moment contribution due to the orbital angular momentum of the electron through equation~\ref{eq:orbital_momentum}. But due to hand waviness, we're gonna go the quantum mechanical route with this equation. Thus we have an equation 
+\begin{equation}
+	\pmb{\mu} = -\mu_B \pmb{I}
+\end{equation}
+for the orbital angular momentum, but also a magnetic dipole moment is given for the spin in the quantum mechanical treatment that is as follows
+\begin{equation}
+	\pmb{\mu_{spin}} = - g_0 \mu_B \pmb{S}.
+\end{equation}
+And we estimate $g_0=2$\footnote{Sorry, too intricate to explain} and we get a total magnetic dipole moment to be
+\begin{equation}
+	\pmb{\mu} = - \mu_B (\pmb{L}+2\pmb{S}).
+	\label{eq:total_angular_momentum}
+\end{equation}
+Where $\pmb{L}$ is the total sum of atoms electron orbital momentums and $\pmb{S}$ is the sum of the atoms electrons spin angular momenta. For every closed shell this sum adds up to be zero. Thus permanent dipole moments only occur in atoms or ions with an incomplete shell. 
+
+To look at how an incomplete shell is built for incomplete shells in isolated ions, and thus being able to calculate the momenta of them, we use the Russell-Sounders coupling scheme, or L-S coupling. It states that the stationary states of the shell are eigenstates of $\pmb{L^2}, \pmb{S^2}$ and $\pmb{J^2}$, with eigenvalues $L(L+1), S(S+1)$ and $J(J+1)$. To find the values of L,S and J we use the Hund's rules
+\begin{enumerate}
+	\item S takes the maximum value allowed by the exclusion principle, thus as many as possible of the electrons have parallel spins
+	\item L takes the maximum value consistent with this value of S - the electrons have their orbital angular momenta as well aligned as possible
+	\item $J = |L-S|$ for shells less then half full and $J = L+S$ for shells more then half full.
+\end{enumerate}
+
+Here it's interesting to note that rule 1 and 2 of Hund's rules are closely associated with the Coulomb forces between electrons, due to them being much larger then the magnetic force\footnote{Not argued for here, but take my word for it!}. And the value of j, is associated with the spin-orbit interaction, that is with the magnetic field generated by the motion of the electrons within the atom, this is of order 10T\footnote{Also just a given fact}. So the 3rd rule can be effected by a field applied of this order.
+
+In figure~\ref{fig:hunds} we get a picture of two ions having applied the Hund's rule on to determine the values of L,S and J. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{hunds}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:hunds}
+\end{figure}
+
 \subsubsection{The interaction of permanent dipole moment with an applied magnetic field}
+Alignment of an atomic dipole by a field $\pmb{B}$ (which is taken to be along the z-axis) occurs because of an energy term in the electrons, $H_P$,
+\begin{equation}
+	H_P = - \pmb{\mu} \cdot \pmb{B} = -\mu_z B.
+	\label{eq:alignment_energy}
+\end{equation}
+Where $\pmb{\mu}$ is given by equation~\ref{eq:total_angular_momentum}. It should however be noted that you should not think of it as an atomic bar magnet, because things does not quite act on the atomic level as things does in the macroscopic world. 
+
+\newpage
+If we assume that the energy $H_p$ is small, we can use first-order perturbation theory to calculate the effect of the alignment energy. We then assume a ground state for the ion, or atom, we look at (nothing excited to a new level) and use quantum hand waviness to get the expectation energy
+\begin{equation}
+	\langle H_p \rangle = g\mu_B J_z B
+	\label{eq:expected_alignment_energy}
+\end{equation}
+where $j_z = -j,\ldots ,1,0,1,\ldots j$ and g is the \emph{Landé g-factor} 
+\begin{equation}
+	g = \frac{3}{2} - \frac{L(L+1) - S(S+1)}{2J(J+1)}
+\end{equation}
+
+Comparing equation~\ref{eq:alignment_energy} and equation~\ref{eq:expected_alignment_energy}, we can see that we seem to have an effective magnetic moment 
+\begin{equation}
+	\pmb{\mu}_{eff} = g\mu_B\pmb{J}
+\end{equation}
 \subsubsection{Calculation of the magnetization of paramagnetic ions}
 \subsubsection{Conduction electron paramagnetism}
 
@@ -451,6 +543,15 @@ We also have to note we haven't looked into the atomic factor at all. It could d
 \subsubsection{Momentum in a magnetic field}
 \subsubsection{Screening by induced currents}
 \subsubsection{Calculation of the diamagnetic susceptibility}
+
+\subsection{New words}
+\begin{itemize}
+	\item \textbf{Diamagnetism}
+	\item \textbf{Paramagnetism}
+	\item \textbf{Magnetic susceptibility - $\chi$}
+	\item \textbf{Magnetization - $\mathbf{M}$}
+	\item \textbf{Macroscopic magnetic field within a material - $\mathbf{H}$}
+\end{itemize}
 
 
 \newpage
