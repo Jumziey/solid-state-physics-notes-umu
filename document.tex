@@ -442,13 +442,13 @@ We also have to note we haven't looked into the atomic factor at all. It could d
 \newpage
 \section{Diamagnetic and paramagnetism}
 \subsection{Introduction}
-The increase in a magnetic field applied to any material\footnote{referred to as $\mathbf{H}$} causes an induced electromotive force, which in turn accelerates electrons in the material. Then according to Lenz's law the resulting electric current is such that it reduces the magnetic field applied inside the material, one also say that the magnetic field is ``screened'' from the material.
+The increase in a magnetic field applied to any material(referred to as $\mathbf{H}$) causes an induced electromotive force, which in turn accelerates electrons in the material. Then according to Lenz's law the resulting electric current is such that it reduces the magnetic field applied inside the material, one also say that the magnetic field is ``screened'' from the material.
 
 What's more interesting is that this current actually still exist even if the magnetic field is held at a constant value\footnote{We will explain this phenomenon later.}. If this does indeed happen in a material, then the material is \emph{diamagetic}. Note that the current creates a magnetic field, Denoted as $\mathbf{M}$, which works against the applied magnetic field, $\mathbf{H}$.
 
 If a material posses atoms with a permanent magnetic dipole moment\footnote{Think bar magnets.}, then the diamagnetic effects are usually very small in comparison to the \emph{paramagnetic} effects. The paramagnetic effect creates a magnetization, $\mathbf{M}$, which works with the applied magnetic field, $\mathbf{H}$. 
 
-We can relate the magnetization of the material, $\mathbf{M}$, with the applied magnetic field, $\mathbf{H}$ through the magnetic susceptibility, $\chi$, of the material as 
+We can relate the magnetization of the material, $\mathbf{M}$, with the applied magnetic field, $\mathbf{H}$ through the \emph{magnetic susceptibility}, $\chi$, of the material as 
 \begin{equation}
 	\mathbf{M} = \chi \mathbf{H}.
 \end{equation}
@@ -519,12 +519,12 @@ Alignment of an atomic dipole by a field $\pmb{B}$ (which is taken to be along t
 	H_P = - \pmb{\mu} \cdot \pmb{B} = -\mu_z B.
 	\label{eq:alignment_energy}
 \end{equation}
-Where $\pmb{\mu}$ is given by equation~\ref{eq:total_angular_momentum}. It should however be noted that you should not think of it as an atomic bar magnet, because things does not quite act on the atomic level as things does in the macroscopic world. 
+Where $\pmb{\mu}$ is given by equation~\ref{eq:total_angular_momentum}. It should however be noted that you should not think of it as an atomic bar magnet, because things does not quite act the same on the atomic level as things does in the macroscopic world\footnote{But of course it does now just to be confusing.}. For instance this $H_p$ energy is actually part of the kinetic energy of the atom.
 
 \newpage
-If we assume that the energy $H_p$ is small, we can use first-order perturbation theory to calculate the effect of the alignment energy. We then assume a ground state for the ion, or atom, we look at (nothing excited to a new level) and use quantum hand waviness to get the expectation energy
+If we assume that the energy $H_p$ is small, we can use first-order perturbation theory to calculate the effect of the alignment energy. We then assume a ground state(nothing excited to a new level) for the ion, or atom, and use quantum hand waviness to get the expectation energy
 \begin{equation}
-	\langle H_p \rangle = g\mu_B J_z B
+	E_p = \langle H_p \rangle = g\mu_B J_z B
 	\label{eq:expected_alignment_energy}
 \end{equation}
 where $j_z = -j,\ldots ,1,0,1,\ldots j$ and g is the \emph{Landé g-factor} 
@@ -537,11 +537,102 @@ Comparing equation~\ref{eq:alignment_energy} and equation~\ref{eq:expected_align
 	\pmb{\mu}_{eff} = g\mu_B\pmb{J}
 \end{equation}
 \subsubsection{Calculation of the magnetization of paramagnetic ions}
-\subsubsection{Conduction electron paramagnetism}
+Now, finally, we have the energy which is due to the magnetic dipole moment in the electrons, maybe we could calculate the magnetization from the paramagnetic material given a certain temperature T and magnetic field $\pmb{B}$.
 
+Well, if we look at every dipole as they where independent on each other, we can use the Boltzmann factor to figure out how the relative occupation of energy levels will be at a certain temperature T. The Boltzmann factor is given by
+\begin{equation}
+	e^{-E_p/k_B T} = e^{\pmb{\mu}_{eff} \cdot \pmb{B} / k_B T}
+\end{equation}
+and we did use equation~\ref{eq:expected_alignment_energy} here in order to complete our expression for the Boltzmann factor. We can go one step further and specify that the magnetization field is parallel to the z-axis and the expression becomes
+\begin{equation}
+	e^{\mu_{eff}^z B/k_B T}
+\end{equation}
+where 
+\begin{equation}
+	\mu_{eff}^z = -g\mu_B J_z.
+\end{equation}
+We can then write the net magnetization for N moments per unit volume, through our deep understanding of statistical physics, to be
+\begin{equation}
+	M = N \sum^{+J}_{J_z = -J} (e^{\mu_{eff}^z B/k_B T} / \sum^{+J}_{J_z = -J} e^{\mu_{eff}^z B/k_B T})
+\end{equation}
+Note that the J is baked into the $\mu_{eff}^z$ constant.
+
+\newpage
+Using some fancy rewrites and awesome algebraic skills we can get to another expression that is easier to study, which is
+\begin{equation}
+	M = Ng\mu_B J B_J(x)
+\end{equation}
+Where 
+\begin{equation}
+	x = g \mu_B BJ/k_B T
+\end{equation}
+and 
+\begin{equation}
+	B_J(x) = \frac{2J+1}{2J} \coth{[(\frac{2J+1}{2J})x]} - \frac{1}{2J}\coth{(\frac{x}{2J})}.
+\end{equation}
+Where $B_J(x)$ is known as the Brillouin function. This function has the interesting property of increasing linearly for small $x$, but saturates at $1$ for large $x$. Thus for small fields applied to a paramagnetic material the resulting magnetization in the material increases linearly to then reach the \emph{saturation magnetization} $Ng\mu_B J$ when a large field is applied. 
+
+For small fields(or rather small $x$) we can approximate $B_J(x)$ to be
+\begin{equation}
+	B_J(x) \approx \frac{(J+1)x}{3J}.
+\end{equation}
+So the resulting magnetization in small fields are
+\begin{equation}
+	M = \frac{N g^2 \mu_B^2 J(J+1)B}{3k_B T}
+\end{equation}
+
+Here we must note that $B$ is the local field around the dipole, this could differ significantly from the applied field, due to magnetic moments for neighbouring ions. But, for small $\chi$ we get that the magnetization is way smaller then the applied field, i.e. $M \ll H$. So the local field must be dominated by the applied magnetic field. This makes us go back to the ideas of electrostatics and see that the difference between $\mu_0 H$ and $B$ must be vanishingly small. Thus for small fields applied to paramagnetic materials we get the susceptibility
+\begin{equation}
+	\chi = \frac{M}{H} = \mu_0 \frac{M}{B} = \frac{N p^2 \mu^2_B \mu_0}{3 k_B T}
+\end{equation}
+where $p = \sqrt{g[j(j+1)]}$. 
+
+This fits in with the \emph{Curie law} which says that the susceptibility is inversely proportional to the temperature $\chi = C/T$. The \emph{Curie constant} in our case becomes
+\begin{equation}
+	C = \frac{N p^2 \mu^2_B \mu_0}{3 k_B}
+\end{equation}
+
+Putting in some numbers for the susceptibility we find that the difference between $B$ and $\mu_0 H$ only becomes relevant when in temperatures around and below $1K$. We will not look at cases where the difference actually matters. 
+
+\paragraph{Quenching} is an interesting phenomenon which we can see buy comparing the measured values for $p$ (by measuring the susceptibility for materials) and the theoretical values for $p$ using Hund's rules. Looking at figure~\ref{fig:quench-l} and figure~\ref{fig:quench-s}, we can see that for most of the transition metals it fits better to use $S$ in the equation to calculate $p$ rather then $J$. It would seem that the orbital angular momentum is quenched. This is due to something called the \emph{Crystal field}. This field is an electric field produced by nearby ions in the material. As we talked about earlier, only the third of Hund's rules are affected by this. 
+
+So if the crystal field is dominant, which it usually is in transition metals\ldots then the symmetry of the ennvirnment is often such that the eigenstates determined by the crystal  field have $\langle L_{xyz} \rangle = 0$. Thus we have the quenching.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{quench-l}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:quench-l}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{quench-s}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:quench-s}
+\end{figure}
+
+\newpage
+\subsubsection{Conduction electron paramagnetism}
+TODO
+FINISH THIS WHEN YOU READ CHAPTER 3 ABOUT FREE ELECTRONS.
+
+
+\newpage
 \subsection{Diamagnetic}
+In the introduction we mentioned a classical effect that generates a screening effect on a changing magnetic field. However, quantum mechanics gives rise to a tendency, in all matter, to give a stable exclusion of applied fields. To understand that we must consider in detail what happens when a charged particle is accelerated by a changing magnetic field.
+
 \subsubsection{Momentum in a magnetic field}
+By going through the example in the book on page 211-213, get get an expression of the momentum of a charged particle, $\pmb{p}$, to be
+\begin{equation}
+	\pmb{p} = M\pmb{v} + q\pmb{A}
+	\label{eq:charged_particle_momentum}
+\end{equation}
+where $M$ is the mass of the charged particle, $v$ is the velocity, $q$ is the charge and $\pmb{A}$ is the magnetic vector potential the particle lies in. This expression is obtained through classical means and gives us a sense that charged particles gives us a momentum that not only depends on its velocity and mass, but also the magnetic vector potential the charged particle exists in.
+
+We will now use equation~\ref{eq:charged_particle_momentum} with $q \to -e$ and $M \to m$ in subsequent subsections.
 \subsubsection{Screening by induced currents}
+
 \subsubsection{Calculation of the diamagnetic susceptibility}
 
 \subsection{New words}
@@ -551,6 +642,13 @@ Comparing equation~\ref{eq:alignment_energy} and equation~\ref{eq:expected_align
 	\item \textbf{Magnetic susceptibility - $\chi$}
 	\item \textbf{Magnetization - $\mathbf{M}$}
 	\item \textbf{Macroscopic magnetic field within a material - $\mathbf{H}$}
+	\item \textbf{Saturation magnetization}
+	\item \textbf{Curie law}
+	\item \textbf{Curie constant}
+	\item \textbf{Quenching}
+	\item \textbf{Crystal field}
+	\item \textbf{}
+	\item \textbf{}
 \end{itemize}
 
 
