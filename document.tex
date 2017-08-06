@@ -451,6 +451,7 @@ If a material posses atoms with a permanent magnetic dipole moment\footnote{Thin
 We can relate the magnetization of the material, $\mathbf{M}$, with the applied magnetic field, $\mathbf{H}$ through the \emph{magnetic susceptibility}, $\chi$, of the material as 
 \begin{equation}
 	\mathbf{M} = \chi \mathbf{H}.
+	\label{eq:susceptibility}
 \end{equation}
 From this we can deduce the sign of the magnetic susceptibility will be positive for paramagnetic materials and negative for diamagnetic materials. 
 
@@ -459,6 +460,7 @@ From this we can deduce the sign of the magnetic susceptibility will be positive
 From ampere's law we can deduce an equation for the magnetic dipole moment, $\pmb{\mu}$, to be
 \begin{equation}
 	\pmb{\mu} = i \pmb{a}.
+	\label{eq:amperes-law}
 \end{equation}
 Where $\pmb{a}$ is the area vector of the loop, directed so that the current is clockwise when looking along $\pmb{a}$. and $i$ is the electric current.
 
@@ -632,9 +634,62 @@ where $M$ is the mass of the charged particle, $v$ is the velocity, $q$ is the c
 
 We will now use equation~\ref{eq:charged_particle_momentum} with $q \to -e$ and $M \to m$ in subsequent subsections.
 \subsubsection{Screening by induced currents}
+In the book on page 213-214 an argument is made that the quantum states, as related to momentum, is kind of rigid. It needs allot of energy to get exited to another state. Thus a large applied field is required to excite the electrons in an atom. But if we assume that the field is not strong enough to do that, we can assume that when you apply a field the momentum $\langle \pmb{p} \rangle$ stays constant but the velocity $\langle \pmb{v} \rangle$ changes (As described in the previous section). Using equation~\ref{eq:charged_particle_momentum} we get that the induced velocity is
+\begin{equation}
+	\pmb{v} = \frac{e\pmb{A}}{m}
+\end{equation}
+and the resulting current density to be
+\begin{equation}
+	\pmb{j} = n(-e) \pmb{v} = - \frac{ne^2}{m} \pmb{A}
+	\label{eq:atomic_current_density}
+\end{equation}
+In the book on p. 214 it is shown that the screening effect it small. The characteristic length of the vector potential $\pmb{A}$ is two orders of magnitude larger then the atom itself\footnote{The derivation is made through Maxwell's equations and are quite simple, look at it at your leisure}. 
 
+\newpage
 \subsubsection{Calculation of the diamagnetic susceptibility}
+Looking at figure~\ref{fig:induced-screening} we see a cylindrical system setup so that the z-axis is parallel to $\pmb{B}$ and the origin at the atom.  $\rho$ is the radius and $B$ is the magnitude of the uniform magnetic field applied. It is given in the book that the uniform field created by this system can be expressed through the vector potential 
+\begin{equation}
+	\pmb{A} = \pmb{\hat{c}} B \rho/2
+\end{equation}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{induced-screening}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:induced-screening}
+\end{figure}
+\newpage
+thus, by using equation~\ref{eq:atomic_current_density}, the current density becomes\footnote{Note that it's required to have that $div \pmb{A} = 0$ for this vector potential to be usable, otherwise our assumption that $\langle \pmb{p} \rangle$ is constant under the applied field doesn't hold.}
+\begin{equation}
+	\pmb{j} =  - \pmb{\hat{c}} \frac{ne^2B\rho}{2m}.
+\end{equation}
+By assuming that $n$ is constant within the ring in figure~\ref{fig:induced-screening}, we can write that the current of this ring $d\pmb{i}$ is
+\begin{equation}
+	d\pmb{i} = \pmb{j} d\rho dz = - \pmb{\hat{c}} \frac{ne^2B\rho}{2m} d\rho dz
+\end{equation}
+Using amperes law (equation~\ref{eq:amperes-law}) we get that the ring contributes to the dipole moment, $d\pmb{\mu}$, as
+\begin{equation}
+	d\pmb{\mu} = - \pmb{\hat{z}} | d\pmb{i} | \pi \rho^2 = -\pmb{B} \frac{e^2\rho}{2m} \pi \rho^2 d\rho dz.
+\end{equation}
+So the total induced moment becomes
+\begin{equation}
+	\pmb{\mu} = - \pmb{B} \frac{e^2}{4m} \int n\rho^2 dV
+\end{equation}
+where $dV = 2\pi d\rho dz$ is the volume of the ring. Since $\int dV = Z$ where $Z$ is the number of electrons in the atom we can write $\int n\rho^2 dV = Z\langle \rho^2 \rangle$, and we get
+\begin{equation}
+	\pmb{\mu} = - \frac{Z e^2}{4m} \langle \rho^2 \rangle \pmb{B}.
+	\label{eq:diamagnetic_dipole_moment}
+\end{equation}
 
+Since this effect is weak, we ignore neighbours effect on an ion\footnote{We can then also set $\pmb{B} = \mu \pmb{H}$}. We get the magnetization to be for $N$ such atoms to be
+\begin{equation}
+	\pmb{M} = N\pmb{\mu} = - \frac{NZe^2}{4m} \langle \rho^2 \rangle \pmb{B}
+\end{equation}
+using equation~\ref{eq:susceptibility} we get an expression for the susceptibility 
+\begin{equation}
+	\chi = - \frac{NZe^2 \mu_0}{4m} \langle \rho^2 \rangle \approx 10^{-5}
+\end{equation}
+Where the approximation in order to the get order of magnitude is done through approximating $\langle \rho^2 \rangle \approx a_0^2$, where $a_0$ is the Bohr radius. A very low susceptibility indeed.
+\newpage
 \subsection{New words}
 \begin{itemize}
 	\item \textbf{Diamagnetism}
@@ -647,10 +702,32 @@ We will now use equation~\ref{eq:charged_particle_momentum} with $q \to -e$ and 
 	\item \textbf{Curie constant}
 	\item \textbf{Quenching}
 	\item \textbf{Crystal field}
+\end{itemize}
+
+\newpage
+\section{Magnetic Order}
+\subsection{Introduction}
+\subsection{The exchange interaction}
+
+\subsection{Ferromagnetism}
+\subsubsection{The Weiss molecular field}
+\subsubsection{Calculation of ferromagnetic properties using the mean field theory}
+\subsection{The Néel model of antiferromagnetism}
+
+\subsection{Ferromagnetic Domains}
+\subsubsection{The energy and thickness of a Bloch wall}
+\subsubsection{Why do domains occur?}
+\subsubsection{Magnetization curves of ferromagnets}
+
+\subsection{New words}
+\begin{itemize}
+	\item \textbf{Magnetic order}
+	\item \textbf{Ferromagnetism}
+	\item \textbf{Bloch wall}
+	\item \textbf{Mean field theory}
 	\item \textbf{}
 	\item \textbf{}
 \end{itemize}
-
 
 \newpage
 \begin{thebibliography}{9}
