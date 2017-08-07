@@ -537,6 +537,7 @@ where $j_z = -j,\ldots ,1,0,1,\ldots j$ and g is the \emph{Landé g-factor}
 Comparing equation~\ref{eq:alignment_energy} and equation~\ref{eq:expected_alignment_energy}, we can see that we seem to have an effective magnetic moment 
 \begin{equation}
 	\pmb{\mu}_{eff} = g\mu_B\pmb{J}
+	\label{eq:effective-magnetic-moment}
 \end{equation}
 \subsubsection{Calculation of the magnetization of paramagnetic ions}
 Now, finally, we have the energy which is due to the magnetic dipole moment in the electrons, maybe we could calculate the magnetization from the paramagnetic material given a certain temperature T and magnetic field $\pmb{B}$.
@@ -563,6 +564,7 @@ Note that the J is baked into the $\mu_{eff}^z$ constant.
 Using some fancy rewrites and awesome algebraic skills we can get to another expression that is easier to study, which is
 \begin{equation}
 	M = Ng\mu_B J B_J(x)
+	\label{eq:paramagnetic-magnetization}
 \end{equation}
 Where 
 \begin{equation}
@@ -707,24 +709,185 @@ Where the approximation in order to the get order of magnitude is done through a
 \newpage
 \section{Magnetic Order}
 \subsection{Introduction}
+Spontaneous magnetization occurs without an applied field due to alignment of dipole moments. This usually occurs below temperatures we considered when talking about paramagnets. This is because each dipole somehow gets ``aware'' of each other. When dipoles get ordered the entropy gets lower and we usually talk about three types  of magnetic orders. First the ferromagnetic order, in which all the dipoles are align, then we have the antiferromagnets where all the dipoles get cancelled out and lastly the ferrimagnets where we have a net alignment but there exists dipoles that are turned the opposite way too.
+
+The magnetic interaction is too small to matter\footnote{showed in the book on page 219}. The only power strong enough must be the electrostatic interaction between the electrons. From quantum mechanics we have on such electrostatic interaction which depends on the relative orientation of their magnetic moments, namely the exchange force
 \subsection{The exchange interaction}
+Wavefunction of two electrons need to be antisymmetric, i.e.
+\begin{equation}
+	\psi(\pmb{r}_1, \pmb{s}_1:\pmb{r}_2, \pmb{s}_2) = -  \psi(\pmb{r}_2, \pmb{s}_2:\pmb{r}_1, \pmb{s}_1)
+\end{equation}
+and thus disappears if two electrons where  to occupy the same state. In other words there is no probability that two electrons would be found at the same point in space. Thus this antisymmetry of the wavefunction tends to keep electrons of parallel spin apart, so the expectation energy of the Coulomb repulsion energy $e^2/4\pi \sigma_0 |\pmb{r}_1 - \pmb{r}_2 |$ is lower for electrons with parallel spins then antiparallel spins. 
+
+We represent this exchange interaction as
+\begin{equation}
+	-2 \mathscr{J} \pmb{s}_1 \cdot \pmb{s}_2
+\end{equation}
+thus the Coulomb energy is $2\mathscr{J}$ less for parallel spins, as compared to antiparallel spins. This process describes a \emph{direct exchange}. There exists indirect exchange, as described in figure~\ref{fig:indirect-exchange}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{indirect-exchange}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:indirect-exchange}
+\end{figure}
+
+Well now in reality we have many electrons in an atoms and many atoms in a solid. So if we start with the exchange energy and go on with some dubious assumptions and hypocritical math, we end up with the \emph{Heisenberg Hamiltonian} 
+\begin{equation}
+	H = - \sum_i \sum_{j \neq i} \mathscr{J}_{ij} \pmb{S}_i \cdot \pmb{S}_j
+	\label{eq:heisenberg-hamiltonian}
+\end{equation}
+where $i$ and $j$ is atoms and $\pmb{S}$ is the \emph{total} angular moment of the specified atom. Please do not confuse this with $\pmb{s}$, the spin. This is basically the $\pmb{J}$ from before. This is the magic sauce we will use to calculate the properties of magnetically ordered materials.
 
 \subsection{Ferromagnetism}
 \subsubsection{The Weiss molecular field}
+Before quantum mechanics Weiss game around and postulated the existence of a molecular field proportional to the spontaneous magnetization in order to explain spontaneous magnetization. Thus the effective magnetic field acting on any moment was
+\begin{equation}
+	\pmb{B}_{eff} = \pmb{B}_{loc} + \lambda \mu_0 \pmb{M}
+	\label{eq:weiss}
+\end{equation}
+where $\pmb{B}_{loc}$ is the applied field and $\lambda \mu_0 \pmb{M}$ is the molecular field. Putting in $\pmb{B}_{eff}$ into equation~\ref{eq:alignment_energy} we end up with an additional term $-\lambda \mu_0 \pmb{M}$ in the energy of the dipole moment.
+
+We can approximate equation~\ref{eq:heisenberg-hamiltonian} by assuming that the exchange energy of a particle with total angular momentum $\pmb{S}_i$ can be taken against $\langle \pmb{S} \rangle$ instead of $\pmb{S}_j$\footnote{This calculation is an exercise with hints on page 222}. Through that assumption we can simplify the equation so that we can get the magnetization through equation~\ref{eq:effective-magnetic-moment} to be
+\begin{equation}
+	\pmb{M} = - Ng \mu_B \langle \pmb{S} \rangle.
+\end{equation}
+This assumption also leads to a value for the dimensionless constant $\lambda$ in equation~\ref{eq:weiss} to be
+\begin{equation}
+	\lambda = \frac{2 \sum_{j \neq i} \mathscr{J}_{ij}}{N \mu_0 g^2 \mu_B^2}.
+\end{equation}
+Thus being proportional to the sum of exchange energies of a spin with all other spins in the solid. This way of approximating spins by their average value, falls into something called mean field theory. 
+
 \subsubsection{Calculation of ferromagnetic properties using the mean field theory}
+Using the exact same arguments as we did for the paramagnetic materials earlier but replacing the real magnetic field $\pmb{B}$ with the magnetic field $\pmb{B}_{eff}$ in equation~\ref{eq:paramagnetic-magnetization} with the combination of setting $L=0$, $J=S=\frac{1}{2}$ and $g=2$ for simplicity, we get
+\begin{equation}
+	M = N\mu_B \\tanh(\frac{\mu_B B_{eff}}{k_B T})
+\end{equation}
+Which for the high temperature limit $\mu_B B_{eff}/k_B T \ll 1$ becomes\footnote{$\tanh(x) \approx x$}
+\begin{equation}
+	M = \frac{N \mu_B^2}{k_B T} B_{eff} = \frac{N \mu_B^2}{k_B T} (B_{loc} + \lambda \mu_0 M)
+\end{equation}
+And here we say that $M$ is proportional to $B_{loc}$, so we have no spontaneous magnetization. Even though we have another term, that just how it is. And we relate the macroscopic field $\pmb{H}$ to the local field $\pmb{B}_{loc}$ through $\mu_0H = B_{loc}$. Thus we get the susceptibility 
+\begin{equation}
+	\chi = \frac{M}{H} = \frac{C}{T-T_c}
+\end{equation}
+where 
+\begin{equation}
+	C = \frac{N\mu_0 \mu_B^2}{k_B}
+\end{equation}
+and 
+\begin{equation}
+	T_c = \lambda C
+\end{equation}
+And $T_c$ represents the upper temperatures at which the material displays ferromagnetic properties.
+
+For a treatment in the lower temperature limit $\mu_B B_{eff}/k_B T \gg 1$ I refer to the book at pages 224-226.
+
+TODO ADD SOMETHING ABOUT FREE ELETRONS IN METAL WHEN READ CHAPTER 3 FREE ELECTRONS
+
 \subsection{The Néel model of antiferromagnetism}
+If the exchange energy $\mathscr{J}_{ij}$ is negative the antiparallel alignment is preferred. Thus we have no magnetization. One way to look at this is splitting up the lattice is two different sublattices $A$ and $B$ in which the spins in the $A$ lattice is antiparallel to the spins in the $B$ lattice.
 
+Néel proposed a generalization to the Weiss molecular field  by supposing that the atoms on one sublattice experience a molecular field proportional to the magnetization of the other sublattice and opposite in direction to it. Thus we end up with the equations
+\begin{align}
+	\pmb{B}^{\pmb{A}}_{eff} &= \mu_0 (\pmb{H} - \lambda \pmb{M}_{\pmb{B}}) \\
+	\pmb{B}^{\pmb{B}}_{eff} &= \mu_0 (\pmb{H} - \lambda \pmb{M}_{\pmb{A}})
+\end{align}
+Which can be obtained from the Heisenberg Hamiltonian(equation~\ref{eq:heisenberg-hamiltonian}) if assumed that only nearest neighbour interactions are important and that all the nearest neighbour of any $A$ moment are from the $B$ sublattice. Doing the same treatment as before we did for ferromagnets, we get two magnetizations
+\begin{align}
+	M_A &= \frac{N}{2} \mu_B \tanh{(\frac{\mu_B B^A_{eff}}{k_B T})} \\
+	M_B &= \frac{N}{2} \mu_B \tanh{(\frac{\mu_B B^B_{eff}}{k_B T})}
+\end{align}
+Once again we look at the high temperature limit and end up with the result\footnote{for details look at page 230 in book}
+\begin{equation}
+	M = M_A + M_B = \frac{C}{T + \lambda C/2} H
+\end{equation}
+with 
+\begin{equation}
+	\lambda = - \frac{4z \mathscr{J}}{N \mu_0 g^2 \mu^2_B}.
+\end{equation}
+Note that $\mathscr{J}$ is negative so $\lambda$ is positive. $C$ is the curie constant from the section of ferromagnetics. The susceptibility then becomes
+\begin{equation}
+	\chi = \frac{M}{H} = \frac{C}{T+ T_N}
+\end{equation}
+where 
+\begin{equation}
+	T_N = \lambda C/2
+\end{equation}
+
+The big difference here is that below the Néel temperature ($T_N$) the susceptibility gets very low. Thus goes into an ordered state with no magnetization. It also matters if the applied field is parallel or perpendicular to the lattice. This further explained on page 231 of the book.
+
+\newpage
 \subsection{Ferromagnetic Domains}
-\subsubsection{The energy and thickness of a Bloch wall}
-\subsubsection{Why do domains occur?}
-\subsubsection{Magnetization curves of ferromagnets}
+Despite the spontaneous magnetization, macroscopic samples of ferromagnetic materials usually have a negligible total dipole moment in the absence of an applied field. Usually have a negligible total dipole moment in the absence of an applied field. This is because such materials often consist of small regions, called domains, which magnetization points in different directions. In figure~\ref{fig:domains} we can see this effect in a 50 $\mu m$ crystal of iron. The seemingly sharp walls which separates the domains are called \emph{Block walls}. These walls are depicted in figure~\ref{fig:bloch-wall} and as we can see they are not in fact sharp, but a smooth transition.
 
+\subsubsection{The energy and thickness of a Bloch wall}
+To look at the energy of a bloch wall we need to look at the change in exchange energy due to the variation of the magnetization in the bloch wall. We assume the spins lie on a simple cubic lattice of side $a$ and assume there is a domain wall of the form in figure~\ref{fig:bloch-wall} in the xy-plane. We then end up with an expression\footnote{haphazardly derived in pages 247-249 in the book} for the wall energy per unit area to be
+\begin{equation}
+	\sigma = \pi a (\frac{WK}{3})^{1/2}
+\end{equation}
+and a wall thickness 
+\begin{equation}
+	t = \pi a (\frac{W}{3K})^{1/2}
+\end{equation}
+where $K$ is a constant given in the book without explanation, and $W$ is the exchange energy per unit volume
+\begin{equation}
+	W = \frac{6\mathscr{J} s^2}{a^3}
+\end{equation}
+Basically the point of this derivation was to show that the Bloch wall is about a 100 atoms thick and much higher energy than a region of uniform magnetization. Thus we need to explain why these domains would occur since there is so much energy associated with the walls themself. 
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{domains}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:domains}
+\end{figure}
+\newpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{bloch-wall}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:bloch-wall}
+\end{figure}
+
+\newpage
+\subsubsection{Why do domains occur?}
+Basically there is a large amount of energy associated with magnetic field outside the crystal\footnote{$B^2/2\mu_0$ per unit volume!}, looking at figure~\ref{fig:domains-occur} we can see how much smaller this magnetic fields becomes if we subdivide the material into domains. So basically the there is a balance for the least amount of energy where the bloch wall energy and the magnetic field energy outside the crystal is minimized. Beyond this the structure of the domains might be weird on first look. This is due to \emph{magnetostriction}. Basically a magnetized crystal tends to expand or contract along the magnetization direction. This magnetostriction creates a stress energy, so this is also taken into account to as something that want to be minimized.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{domains-occur}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:domains-occur}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{domain-structure}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:domain-structure}
+\end{figure}
+
+\subsubsection{Magnetization curves of ferromagnets}
+Basically the domains can be broken by a large applied field and it taking to much energy to go back to lower energy state, thus creating permanent magnets. For more information I refer to pages 250-251 of the book.
+
+
+\newpage
 \subsection{New words}
 \begin{itemize}
 	\item \textbf{Magnetic order}
 	\item \textbf{Ferromagnetism}
 	\item \textbf{Bloch wall}
 	\item \textbf{Mean field theory}
+	\item \textbf{Spontaneous magnetization}
+	\item \textbf{Ferromagnetic order}
+	\item \textbf{Antiferromagnets}
+	\item \textbf{Ferrimagnets}
+	\item \textbf{Heisenberg Hamiltonian}
+	\item \textbf{Molecular field}
+	\item \textbf{Mean field theory}
+	\item \textbf{Magnetostriction}
 	\item \textbf{}
 	\item \textbf{}
 \end{itemize}
