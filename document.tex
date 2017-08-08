@@ -24,6 +24,8 @@
 \rhead{\thetitle\\\today}
 \cfoot{\thepage}
 
+\tableofcontents
+\newpage
 
 \section{Crystal Structure}
 \subsection{Elementary Crystallography}
@@ -363,7 +365,7 @@ The book proves in page 321 that braggs and this requirements both holds up.
 
 Since the scattering vector of each diffracted beam corresponds to a point in reciprocal lattice, we can use the integers $h,k,l$ to label the beams. These labels are identical to the miller indices of the lattice plane that is associated with the diffracted beam, this is also proved in the book at page 321.   
 
-To surmise: for an incident radiation of wavevector $\mathbf{k}$, the direction of the diffracted beams are given by wavevectors $\mathbf{k'} = \mathbf{k} + \mathbf{K}$, where the scattering vector $\mathbf{K}$ is any one of the points of the reciprocal lattice for the crystal. You determine the $\mathbf{K}$ vector through equations~\ref{eq:reciprocal-lattice}.
+To surmise: for an incident radiation of wavevector $\mathbf{k}$, the direction of the diffracted beams are given by wave vectors $\mathbf{k'} = \mathbf{k} + \mathbf{K}$, where the scattering vector $\mathbf{K}$ is any one of the points of the reciprocal lattice for the crystal. You determine the $\mathbf{K}$ vector through equations~\ref{eq:reciprocal-lattice}.
 
 \subsubsection{Examples of reciprocal lattices}
 In describing these reciprocal we will use the three mutually perpendicular real value unit vectors $mathbf{i}$, $mathbf{j}$, $mathbf{k}$.
@@ -891,6 +893,122 @@ Basically the domains can be broken by a large applied field and it taking to mu
 	\item \textbf{}
 	\item \textbf{}
 \end{itemize}
+\newpage
+
+\section{Crystal dynamics + some more Waves in Crystals}
+\subsection{Introduction}
+The idea that every atom has a fixed point in a lattice structure with a basis is not a complete picture of solids. It would be waay too easy if that where the case. No, atoms vibrate around their equilibrium position. In fact, we cannot know bot the position and momentum of a particle, due to the Heisenberg uncertainty principle. So even at absolute zero temperature, the atoms possesses a \emph{zero point energy} which causes their \emph{zero point motion}, or vibration around their equilibrium position. At higher temperature this vibration of course gets larger and these motions are often referred to as \emph{lattice vibrations}. 
+
+We will start with calculating under the assumption that the lattice vibrations are of very small amplitudes. Thus the solid is close to a position of stable equilibrium and we can estimate the vibrations through the simple harmonic oscillator\footnote{To the rescue again!}.
+
+We need to figure out the wavefunctions and energies of the electrons within a crystal in order to get a complete picture of the vibrations, luckily we get many important properties without these calculations.
+\subsection{Sound waves}
+In pages 34-35 of the book we get a derivation of sound waves through a solid. Important assumptions is that $\delta x$ (the displacement in the solid considered) caused by the sound wave, is both much larger then the atomic spacing $a$ and much smaller then the wavelength of the sound wave. The derivation ends up with equation
+\begin{equation}
+	\frac{C}{\rho} \frac{\partial^2 \xi}{\partial x^2} = \frac{\partial^2 \xi}{\partial t^2}.
+\end{equation}
+Thus giving the sound wave the speed
+\begin{equation}
+	v_L = \sqrt{\frac{C}{\rho}}
+\end{equation}
+
+\subsection{Lattice vibrations of one-dimensional crystal}
+\subsubsection{Chain of identical atoms}
+To solve for the displacement of the atoms in a 1d crystal as depicted in figure~\ref{fig:1d-crystal} we look at the Lennard-Jones potential and use the amazing Taylor expansion, thus the problem reduces, as many other problems, to solving for a spring connected line of atoms as depicted in figure~\ref{fig:springs}. We then get the equation 
+\begin{equation}
+	M \frac{d^2 u_n}{dt^2} = K(u_{n+1} - 2u_n + u_{n-1})
+\end{equation}
+Where $M$ is the mass of the atom and $K$ is the second derivate of the Lennard-Jones potential evaluated at equilibrium. We then substitute 
+\begin{equation}
+	u_n = A e^{i(kx^0_n - \omega t)}
+\end{equation}
+where $x^0_n = na$ is the undisplaced position of the nth atom. Doing this we end up with the equation 
+\begin{equation}
+	\omega^2 M = 4K \sin^2{(\frac{ka}{2})}
+\end{equation}
+We apply the periodic boundary condition $u_n =  u_{N+n}$ and note that there should be an integral number of wavelengths is the length of our ring of atoms. Thus we get
+\begin{equation}
+	Na = p\lambda
+\end{equation}
+where $p$ is an integer. $k$ then becomes 
+\begin{equation}
+	k = \frac{2 \pi}{\lambda} = \frac{2\pi p}{Na}
+\end{equation}
+Thus there is N possible k values in the range $2\pi/N$, the same as we have atoms in the ring of atoms. If one look at the long-wavelength limit $ka \ll 1$ the book shows on page 40 how this result becomes the same as the one previously derived in the previous subsection.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{1d-crystal}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:1d-crystal}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{springs}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:springs}
+\end{figure}
+
+\subsection{Lattice vibrations of three-dimensional crystals}
+Hand waviness about how the 1d case extends to 3d. For a unit cell containing only 1 atom three directions are possible for the wave to propagate through, so we have 3N modes. For a primitive unit cell with two atoms there are three acoustic branches and three optical branches (basically we're talking about transversal and longitudinal waves). The general result for a unit cell containing s atoms is three acoustic branches and 3(s-1) optical branches.
+
+\subsection{Phonons}
+Supposing that a lattice vibration mode of frequency $\omega$ will behave like a simple harmonic oscillator, it will thus be restricted to the energy levels
+\begin{equation}
+	\sigma_n = (n+\frac{1}{2}) \hslash \omega.
+\end{equation}
+From this we introduce the concept of a phonon, with the quanta $\hslash \omega$. We cannot determine a phonons exact position since we know the momentum $\hslash \pmb{k}$, due to the uncertainty principle. But as with photons or electrons we can create a wavepacket by combining modes of slightly different frequency and wavelength. This wavepacket represents a fairly localized phonon moving with group velocity $d\omega/d\pmb{k}$. Note now that we interpret the momentum and energy for the phonon as
+\begin{align}
+	E &= \hslash \omega \\
+	\pmb{p} &= \hslash \pmb{k}
+\end{align}
+but the momentum is not the true kinematic momentum. This due to a lattice mode of wavenumber $k$ can just as well be represented by the wavenumber $k+2\pi n  /a$. Thus there is no unique value of $\pmb{k}$ ascribed to a phonon. Though we will see that this momentum we call \emph{crystal momentum} does possess many of the properties of momentum.
+
+\subsection{Wavelike normal modes - Bloch's theorem}
+In page 328-330 the book goes through how we derive the \textbf{Bloch wavefunction}. We start by assuming that the wavefunctions time dependence is $e^{i\omega t }$
+\begin{equation}
+	\Psi(\pmb{r},t) = \Psi(\pmb{r}) e^{i\omega t}.
+\end{equation}
+Then through a nice argument of incremental changes from lattice point to lattice point we end up with the expression
+\begin{equation}
+	\Psi(\pmb{r}_l,t) = e^{i(\pmb{k} \cdot \pmb{r}_l - \omega t)}.
+\end{equation}
+The derivation then does a subtle argument for going over from a more discrete space of lattices with a basis to a continuous one, this is the most difficult part to follow but we end up with
+\begin{equation}
+	\Psi(\pmb{r},t) = \frac{1}{\sqrt{V}} u_k(\pmb{r}) e^{i(\pmb{k} \cdot \pmb{r} - \omega t)}
+	\label{eq:bloch-wavefunction}
+\end{equation}
+where $V$ is the volume of the crystal, and $u_k(\pmb{r})$ is a periodic function with period of the lattice, which describes the different normal modes $\pmb{k}$ which exists due to the basis associated with a lattice point. This function simply equals to unity in the case that the basis does not exists and we only have an atom on the lattice point. The term $frac{1}{\sqrt{V}}$ is just a convenient normalization factor tacked on to the expression after we normalized the function.
+
+The very fact that that wavefunctions in a crystal can be expressed on this form is \textbf{Bloch's theorem}.
+	
+\subsection{Normal modes and the reciprocal lattice}
+\subsubsection{periodicity of the dispersion relation}
+A normal mode of the crystal described by a function of the form of equation~\ref{eq:bloch-wavefunction} for some wavevector $\pmb{k}$ can also be described by function of the same form but with a different wavevector $\pmb{k}'$ related to $\pmb{k}$ by
+\begin{equation}
+	\pmb{k}' = \pmb{k} + \pmb{G}_0
+\end{equation}
+where $\pmb{G}_0$ is any vector of the reciprocal lattice of the crystal.
+
+This is pretty cool and gives us three pretty cool effects.
+\begin{enumerate}
+	\item For any branch of the dispersion relation, the frequency is periodic in $\pmb{k}$-space with the same periodicity as the reciprocal lattice.
+	\item Any mode can be represented by wavevector inside a single primitive unit cell of the reciprocal lattice.
+	\item The number of normal modes associated with any branch of the dispersion relation is equal to the number $N_c$ of the primitive unit cells in the crystal.
+\end{enumerate}
+\newpage
+\subsection{New words}
+\begin{itemize}
+	\item \textbf{Zero point motion}
+	\item \textbf{Zero point energy}
+	\item \textbf{Lattice vibrations}
+	\item \textbf{Harmonic limit}
+	\item \textbf{Crystal momentum}
+	\item \textbf{Bloch wavefunction}
+	\item \textbf{Bloch's theorem}
+	\item 
+	\item 
+\end{itemize}
+\newpage
 
 \newpage
 \begin{thebibliography}{9}
