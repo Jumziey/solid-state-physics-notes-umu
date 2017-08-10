@@ -197,7 +197,7 @@ We can have reflections of higher orders ($n>1$). If we for instance get a refle
 \subsubsection{Experimental arrangements for x-ray dirffraction}
 \newpage
 \paragraph{A Laue photograph} is depicted in figure~\ref{fig:laue-photograph}. It is usually a good at showing symmetries, thus a good tool for figuring out the orientation of a crystal.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{laue-photograph}
 	\caption{The experimental setup for the Laue photograph}
@@ -206,7 +206,7 @@ We can have reflections of higher orders ($n>1$). If we for instance get a refle
 
 \newpage
 \paragraph{A Rotating crystal and powder photograph} is depicted in figure~\ref{fig:rotating-crystal}. It's a tool better suited for analysing the actual structure of a crystal.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{rotating-crystal}
 	\caption{The basic setup for a rotating crystal photograph or powder photograph. The difference is wether on not the speciment in the middle is a rotating crystal or a powder of crystalline crystals.}
@@ -217,7 +217,7 @@ We can have reflections of higher orders ($n>1$). If we for instance get a refle
 \subsection{Interatomic forces}
 \subsubsection{Van der Waals bonding}
 Van der Waals occurs with even stable atoms, those who has all the outer electrons in their shell. This is due to flutuation that creates an electric dipole moment. This force experienced is described by the Lennard-Jones potential depicted in figure~\ref{fig:lennard-jones}. Worth noting that the repulsive force is a consequence of the Pauli principle, that states that no two electrons can occupy the same state, and instead the electrons get excited to higher state if another one would come close. This creates a large repulsive force which one clearly see in the Lennard-Jones potential.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{lennard-jones}
 	\caption{The Lennard-Jones potential is the main force in Van der Waals bonding. The color green represent a distance in which repulsion occurs, while the color of orange represents a distance of attraction. Kinda like how it is with us humans too lol.}
@@ -227,7 +227,7 @@ Van der Waals occurs with even stable atoms, those who has all the outer electro
 \newpage
 \subsubsection{Ionic bonding}
 Basically ionic bonding is the process of atoms sharing one electron in order to create two charged atoms with completed outer shells. The truth goes of course down too Schrödinger's, but in this is as far as we go to it now.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{ionic-bond}
 	\caption{The ionic bond between Na and Cl. In this example Na gives away its stray atom in its outer shell in order to complete the outer shell of Cl. The reality is more complex, but deeply related to electron states in the shells.}
@@ -238,7 +238,7 @@ Basically ionic bonding is the process of atoms sharing one electron in order to
 \subsubsection{Covalent bonding}
 The covalent bonding is similar to the ionic bonding in the sharing of electrons. The covalent bond has some more complexity related to it. It's usually directed too, so can, among other things, be a factor of why there exists solids which has more complex structures. Basically atoms can share electrons between multiple atoms in order for all the outer shells to saturated. This is depicted in figure~\ref{fig:covalent} for the famous $H_2O$ molecule.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{covalent}
 	\caption{The covalent bond is similar to the ionic bond, but shares multiple electrons, could be over multiple atoms and those usually have some kind of direction related to it.}
@@ -251,7 +251,7 @@ Looking at the earlier picture of the $H_2O$ molecule in figure~\ref{fig:covalen
 \newpage
 \subsubsection{Metallic bonding}
 In the metallic bond we have a kind of covalent bond which does not saturate the outer shell of the atoms. This results in "wandering atoms" as depicted in figure~\ref{fig:metallic-bonding}. This in turns facilitate the ability to conduct electricity. 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{metallic-bonding}
 	\caption{In the metallic bond the atoms share their electrons more freely}
@@ -261,7 +261,7 @@ In the metallic bond we have a kind of covalent bond which does not saturate the
 \newpage
 \subsubsection{Mixed bonding}
 Basically just highlighting that we can more then one bond in a solid. As an example we have graphite as depicted in figure~\ref{fig:graphite-bond}. There we have both a covalent bond in the layer, as well a Van der Waals bond between layers. This causes graphite to have the interesting effect of only conducting electricity in the direction parallel to the layers, not perpendicular to it (and thus the Van der Waals bond does not conduct electricity especially well).
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphite-bond}
 	\caption{Depicting the mixed bond inside graphite. Each layer has strong covalent bond, while between layers only Van der Waals forces keeps it together.}
@@ -297,7 +297,7 @@ Lets assume the incident radiation is a plane wave on the form $A_0 \exp{[i(\mat
 	A_r = A_0 e^{i(\mathbf{k} \cdot \mathbf{r} - \omega t)} \times f \times \frac{e^{ik(|\mathbf{R} - \mathbf{r}|)}}{|\mathbf{R}-\mathbf{r}|}.
 \end{equation}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{crystal-plane-wave}
 	\caption{An incoming plane wave towards a crystal and description of what part radial excitation wave will hit the detector}
@@ -329,7 +329,7 @@ Recalling that the position of an atom can be made up of lattice point position 
 \end{equation}
 The first part of this right hand expression is what determines the direction for which diffraction occurs and is due to the crystal lattice. The second part is due to the basis, and is the same for all lattice points, which is a sum over relatively few atoms. This second part is called the \textbf{structure factor}.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{basis-sep}
 	\caption{}
@@ -399,7 +399,7 @@ which gives us the reciprocal
 	\mathbf{c} &= \frac{2\pi}{a} (\mathbf{i} + \mathbf{j} - \mathbf{k}) \nonumber\\
 \end{align}
 Which yields the bcc! Not completely visible perhaps, maybe easier to see through the reciprocal equations directly perhaps. But basically the vectors get translated around to the bbc, and scaled of course, this is depicted in figure~\ref{fig:fcc-bcc}.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{reciprocal-lattice-fcc-bcc}
 	\caption{Here we can see how the reciprocal of the fcc lattice is just rotated and scaled into a bcc lattice}
@@ -434,7 +434,7 @@ So if we put this into the structure factor equation~\ref{eq:structure-factor} a
 Since the amplitude is proportional to $S$, we can use this equation to do some analysis of where the amplitude might completely go to zero. But also to some extend see which planes will have a large contribution to reflections. This of course have to weighted against the lattice term as well.
 
 We also have to note we haven't looked into the atomic factor at all. It could differ for the same atoms as well due to different environment and such. This have an effect on structures like the diamond.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.4\textwidth]{hcp}
 	\caption{The hexagonal close packed structure.}
@@ -510,7 +510,7 @@ Here it's interesting to note that rule 1 and 2 of Hund's rules are closely asso
 
 In figure~\ref{fig:hunds} we get a picture of two ions having applied the Hund's rule on to determine the values of L,S and J. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{hunds}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -604,14 +604,14 @@ Putting in some numbers for the susceptibility we find that the difference betwe
 
 So if the crystal field is dominant, which it usually is in transition metals\ldots then the symmetry of the ennvirnment is often such that the eigenstates determined by the crystal  field have $\langle L_{xyz} \rangle = 0$. Thus we have the quenching.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{quench-l}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
 	\label{fig:quench-l}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{quench-s}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -655,7 +655,7 @@ Looking at figure~\ref{fig:induced-screening} we see a cylindrical system setup 
 \begin{equation}
 	\pmb{A} = \pmb{\hat{c}} B \rho/2
 \end{equation}
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{induced-screening}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -726,7 +726,7 @@ We represent this exchange interaction as
 	-2 \mathscr{J} \pmb{s}_1 \cdot \pmb{s}_2
 \end{equation}
 thus the Coulomb energy is $2\mathscr{J}$ less for parallel spins, as compared to antiparallel spins. This process describes a \emph{direct exchange}. There exists indirect exchange, as described in figure~\ref{fig:indirect-exchange}.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{indirect-exchange}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -838,7 +838,7 @@ where $K$ is a constant given in the book without explanation, and $W$ is the ex
 Basically the point of this derivation was to show that the Bloch wall is about a 100 atoms thick and much higher energy than a region of uniform magnetization. Thus we need to explain why these domains would occur since there is so much energy associated with the walls themself. 
 
 \newpage
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{domains}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -846,7 +846,7 @@ Basically the point of this derivation was to show that the Bloch wall is about 
 \end{figure}
 \newpage
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{bloch-wall}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -857,14 +857,14 @@ Basically the point of this derivation was to show that the Bloch wall is about 
 \subsubsection{Why do domains occur?}
 Basically there is a large amount of energy associated with magnetic field outside the crystal\footnote{$B^2/2\mu_0$ per unit volume!}, looking at figure~\ref{fig:domains-occur} we can see how much smaller this magnetic fields becomes if we subdivide the material into domains. So basically the there is a balance for the least amount of energy where the bloch wall energy and the magnetic field energy outside the crystal is minimized. Beyond this the structure of the domains might be weird on first look. This is due to \emph{magnetostriction}. Basically a magnetized crystal tends to expand or contract along the magnetization direction. This magnetostriction creates a stress energy, so this is also taken into account to as something that want to be minimized.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{domains-occur}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
 	\label{fig:domains-occur}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{domain-structure}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -935,13 +935,13 @@ where $p$ is an integer. $k$ then becomes
 	k = \frac{2 \pi}{\lambda} = \frac{2\pi p}{Na}
 \end{equation}
 Thus there is N possible k values in the range $2\pi/N$, the same as we have atoms in the ring of atoms. If one look at the long-wavelength limit $ka \ll 1$ the book shows on page 40 how this result becomes the same as the one previously derived in the previous subsection.
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{1d-crystal}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
 	\label{fig:1d-crystal}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{springs}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
@@ -1010,20 +1010,124 @@ This is pretty cool and gives us three pretty cool effects.
 
 \section{Free electrons in metals}
 \subsection{Introduction}
+The conductivity of electricity in solid is usually an indication that there are many electrons in the solid which is not bound to an atom, but are able to move through the whole crystal. Ignoring the fact of why this occurs we will in this section assume that all valence electrons behave in this manners for all the metals. Using the simple theory of the free electron model we will try and explain many of the properties of many metals.
 \subsection{The free electron model}
-\subsubsection{Ground state of the free electron gas}
-\subsubsection{The free electron gas at a finite temperature}
-\subsubsection{Heat capacity of the free electron gas}
+We argue that the valence electrons can move freely in a metal, thus ignoring the crystal structure completely. We also ignore the repulsive interaction between conduction electrons. So we consider electrons moving independently in a square potential well of finite depth, with the edges of the well corresponding to the actual boundaries of the metal. Since the bulk properties of a piece of metal generally are independent of shape, we will consider a simple cube with sides $L$ too. What's left then is to solve the time-independent Schrödinger equation
+\begin{equation}
+	- \frac{\hslash^2}{2m} \nabla^2 \psi = \epsilon \psi.
+\end{equation}
+With periodic boundary conditions
+\begin{equation}
+	\psi (x+L, y+L, z+L) = \psi(x,y,z)
+\end{equation}
+The solution of this is
+\begin{equation}
+	\psi(x,y,z) = \frac{1}{\sqrt{V}} e^{i(\pmb{k}\cdot\pmb{r})}
+\end{equation}
+where $V = L^3$ is the volume of the metal cube, and the term involving $V$ is due to normalization. Using the boundary equation we also get
+\begin{align}
+	k_x = \frac{2\pi p}{L} \\
+	k_y = \frac{2\pi q}{L} \\
+	k_z = \frac{2\pi r}{L} 
+\end{align}
+and the momentum is
+\begin{equation}
+	\pmb{p} = \hslash\pmb{k} = \hslash(k_x, k_y,k_z)
+	\label{eq:wavefunction-free-electron-gas}
+\end{equation}
+And the number of allowed electron states per unit energy range $g(\epsilon)$ is given by
+\begin{equation}
+	g(\epsilon) = \frac{V}{2\pi^2 \hslash^3} (2m)^{3/2 \sqrt{\epsilon}}
+\end{equation}
+where we taken into account that each electron can occupy the same energy state with a different spin.
 
+\subsubsection{Ground state of the free electron gas}
+Electrons are fermions with half-integral spin and obeys the Pauli exclusion prinicple. Thus to find the lowest energy state of $N$ free electrons we need to fill up all the lowest energies until we reach the Fermi energy $\epsilon_f$. We do this by integrating the density of states between $0$ and $\epsilon_f$.  
+\begin{equation}
+	N = \int_0^{\epsilon_f} g(\epsilon) d\epsilon = \frac{V}{3 \pi^2 \hslash^3} (2m\epsilon_f)^{3/2}
+\end{equation}
+thus we get an expression for the Fermi energy as
+\begin{equation}
+	\epsilon_f = \frac{\hslash^2}{2m} (\frac{3 \pi^2 N}{V})^{2/3}.
+\end{equation}
+We now move on to get he energy from the wavefunction for the free electron gas (equation~\ref{eq:wavefunction-free-electron-gas}) using the energy operator\footnote{$\hat{\epsilon} = i \hslash \frac{\partial}{\partial t}$}, we then get the expression
+\begin{equation}
+	\epsilon = \frac{\hslash^2 k^2}{2m}.
+\end{equation}
+From this we get the Fermi wavenumber ($k_f$) to be
+\begin{equation}
+	k_f = (2 \pi^2N/V)^{1/3}
+\end{equation}
+With this we can create the \textbf{Fermi sphere} in \textbf{k}-space as showed in figure~\ref{fig:fermi-sphere}. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fermi-sphere}
+	\caption{A quarter of a Fermi sphere. The ``boxes'' represent an energy state that can be occupied. }
+	\label{fig:fermi-sphere}
+\end{figure}
+This variables are of high importance in the following  section, together with the \textbf{Fermi momentum} ($p_f = \hslash k_f$) and the \textbf{Fermi veloctiy} ($v_f = p_f/m$). Its interesting to note that the Fermi energy would not be obtained by an electron gas due to the incredibly high temperature that is required for an electron to jump to this energy. This will however occur in a solid due to the Pauli exclusion principle, as has been showed. We also define a \textbf{Fermi temperature} through $\epsilon_f = k_b T_f$.
+
+\subsubsection{The free electron gas at a finite temperature}
+The probability that an electron will occupy a certain electron state of energy $\epsilon$ is given by the \textbf{Fermi distribution function}
+\begin{equation}
+	f(\epsilon,T) = \frac{1}{e^{(\epsilon - \mu)/k_B T} + 1}
+\end{equation}
+where $\mu$ is the chemical potential. This function is plotted in figure~\ref{fig:fermi-function}. In figure~\ref{fig:fermi-function} we also plot the number of electrons per unit energy range in thermal equilibrium, which is given through 
+\begin{equation}
+	n(\epsilon,T) = g(\epsilon)f(\epsilon,T).
+\end{equation}
+This equation becomes evident when you realize that the density of states multiplied by the probability of occupation must give this result.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{fermi-function}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:fermi-function}
+\end{figure}
+One can note how clear the boundaries are at $T=0$ and how it gets smoothed out around this line when the temperature is increased. It's almost like we have two triangles on each side of the clear limit when $T=0$. Given these equations we can now move on to calculate the heat capacity of the free electron gas.
+\subsubsection{Heat capacity of the free electron gas}
+One can start with looking at figure~\ref{fig:fermi-function} and assume the shaded areas are triangles of height $g(\epsilon)/2$ and width $2k_B T$, through this approximation we can see that the increase of energy is is equivalent to $g(\epsilon)/(2 k_B T)$ electrons having their energy increased by $k_B T$, compared to when $T=0$. We then get
+\begin{equation}
+	E(T) - E(0) \approx \frac{1}{2}g(\epsilon_f)(k_B T)^2.
+\end{equation}
+And by differentiating with respect to $T$ we get the heat capacity to be
+\begin{equation}
+	C_v = \frac{3}{2} N k_B (T/T_f)
+\end{equation}
+If we do this through exact means through carrying out the integration 
+\begin{equation}
+	E(T) = \int_0^\infty \epsilon n(\epsilon, T) d\epsilon
+\end{equation}
+and then differentiate with respect to $T$. We then get the result
+\begin{equation}
+	C_v = \frac{\pi^2}{2} N k_B (\frac{T}{T_f})
+\end{equation}
+which is pretty close, with exception to the numerical coefficient.
+
+If we later apply this theory on the real world, we know that heat capacity in very low temperatures are described through(just given here)
+\begin{equation}
+	C_v = \gamma T + \beta T^3
+\end{equation}
+and the linear part is the one we have derived here. In potassium the difference is about 25\%, a very good result for such a simplistic view of how electrons act in metals. This discrepancy is often interpret as arising due to a difference in electrons bare mass and effective mass. But to calculate this effective mass one has to take into account the positive charge density within the crystal, i.e.\ the positively charged ions in the crystal structure. Also phonons effect the effective mass of electrons. 
 \subsection{Transport properties of the conduction electrons}
+
+
+
 \subsubsection{The equation of motion of the electrons}
 \subsubsection{The electrical conductivity}
 \subsubsection{The thermal conductivity}
 
 \newpage
-\begin{thebibliography}{9}
-\end{thebibliography}
-\clearpage
+\subsection{New words}
+\begin{itemize}
+	\item 
+	\item
+\end{itemize}
+\newpage
+
+\newpage
+%\begin{thebibliography}{9}
+%\end{thebibliography}
+clearpage
 \appendix
 \section{Appendix}
 
