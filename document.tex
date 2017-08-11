@@ -1113,8 +1113,80 @@ and the linear part is the one we have derived here. In potassium the difference
 
 
 \subsubsection{The equation of motion of the electrons}
+Using the Lorenz force we can see that in the absence of collision we have
+\begin{equation}
+	m_e \frac{d\pmb{v}}{dt} = - e\pmb{E} - e\pmb{v} \times \pmb{B}
+	\label{eq:force-electron}
+\end{equation}
+as the equation of motion for electrons. $m_e$ in this case is the effective mass, something that enables us to compensate later.
+
+In order for this equation to hold for a wavepacket-electron\footnote{Lorentz force is a force that should act on a classical particle, not a wavefunction} we must create a somewhat localized wavepacket, with reasonably well defined position and momentum. In order to get a wavepacket localized in position to about 10 atomic spacings require use of a wavenumber range in the order of $\frac{k_f}{10}$\footnote{$k_f$ is the of the order of an inverse atomic spacing}. We also need need the packet to be smaller then then length scale associated with variation of $\pmb{E}$ and $\pmb{B}$ as well as the mean free path between collisions of electrons. But the wavepacket also have to be that the packet must be much larger then the atomic spacing in order to be able to ignore the electron-ion interaction. For such a wavepacket we have
+\begin{equation}
+	\pmb{v} = \frac{d\omega}{d \pmb{k}} = \frac{1}{\hslash} \frac{d \epsilon}{d \pmb{k}} = \frac{\hslash \pmb{k}}{m_e} = \frac{\pmb{p}}{m_e}
+\end{equation}
+which produces the expected result for a classical particle.
+
+In equation~\ref{eq:force-electron} we have not taken inte account the effect of electron collisions in the crystal structure due to thermal vibrations in the ion cores, or due to impurities in the crystal. If this was not the case the electrons with accelerate infinitely with an applied electrical field. Thus we modify equation~\ref{eq:force-electron} in order to take into account for this
+\begin{equation}
+	m_e (\frac{d\pmb{v}}{dt} + \frac{\pmb{v}}{\tau} )= - e\pmb{E} - e\pmb{v} \times \pmb{B}
+	\label{eq:force-electron-decay}
+\end{equation}
+this additional term basically creates a exponential decay to zero with a time constant $\tau$ as one remove the field upon the electrons.
+
 \subsubsection{The electrical conductivity}
+Imagine we only a DC-field, then equtaion~\ref{eq:force-electron-decay} has the steady state solution
+\begin{equation}
+	\pmb{v} = -\frac{e\tau}{m_e}\pmb{E}
+\end{equation}
+Hence the electric current density is 
+\begin{equation}
+	\pmb{j} = n(-e)\pmb{v} = \frac{ne^2\tau}{m_e} \pmb{E} = \sigma \pmb{E}
+\end{equation}
+where $\sigma$ is the electrical current, and where
+\begin{equation}
+	\sigma = \frac{n^2\tau}{m_e} = ne\mu_e
+\end{equation}
+where $\mu_e$ is the mobility of the electrons, defined as
+\begin{equation}
+	\mu_e = \frac{e\tau}{m_e}
+\end{equation}
+
+Through experiments one have found that there is two effects that effects the collision time of electrons. The first one is temperature, with an increased temperature the crystal structure vibrates and tend to collide more with moving electrons. The other is impurities. Impurities seem to create a constant decrease of collision time, no matter the temperature. Thus we rewrite $\frac{1}{\tau}$ as
+\begin{equation}
+	\frac{1}{\tau} = \frac{1}{\tau_{pu}(T)} + \frac{1}{\tau_0}
+\end{equation}
+where $\tau_ph$ is due to thermal vibration in the crystal structure, and $\tau_0$ is due to impurities. Using this equation one can rewrite the resistivity of metals $\rho = \frac{1}{\sigma}$ as
+\begin{equation}
+	\rho = \rho_l(T) + \rho_0
+\end{equation}
+where $rho_l$ is due to lattice vibrations, and $\rho_0$ is due to impurities. An exercise of plugging numbers will show that the length scale of collisions are much longer then interatomic spacing, which means that the electrons don't collide with the atoms themself, but actually the phonons created by the lattice vibrations\footnote{This is showed in page 89 of the book}.
+
 \subsubsection{The thermal conductivity}
+Basically thermal conductivity in metals are dominated by electrons, one can even induce currents in metals by creating a heat gradient in a metal. Using the elementary kinetic theory for thermal conductivity one gets the expression for the the thermal conductivity to be
+\begin{equation}
+K = \frac{\pi^2 nk_B^2 T \tau}{3m_e}{3m_e}
+\end{equation}
+
+\subsubsection{The Wiedmann-Franz law and the temperature dependence of the electrical and thermal conductivities}
+So here we are
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{fermi-change}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:fermi-change}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{phonon-electron-scattering}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:phonon-electron-scattering}
+\end{figure}
+
+\subsubsection{The Hall effect}
+
+\section{The effect of the periodic lattice potential - energy bands}
+\subsection{Nearly free electron theory}
+\subsection{Classification of crystalline solids into metals, insulators and semiconductors}
 
 \newpage
 \subsection{New words}
@@ -1123,6 +1195,7 @@ and the linear part is the one we have derived here. In potassium the difference
 	\item
 \end{itemize}
 \newpage
+
 
 \newpage
 %\begin{thebibliography}{9}
