@@ -1145,6 +1145,7 @@ Hence the electric current density is
 where $\sigma$ is the electrical current, and where
 \begin{equation}
 	\sigma = \frac{n^2\tau}{m_e} = ne\mu_e
+	\label{eq:sigma}
 \end{equation}
 where $\mu_e$ is the mobility of the electrons, defined as
 \begin{equation}
@@ -1165,28 +1166,92 @@ where $rho_l$ is due to lattice vibrations, and $\rho_0$ is due to impurities. A
 Basically thermal conductivity in metals are dominated by electrons, one can even induce currents in metals by creating a heat gradient in a metal. Using the elementary kinetic theory for thermal conductivity one gets the expression for the the thermal conductivity to be
 \begin{equation}
 K = \frac{\pi^2 nk_B^2 T \tau}{3m_e}{3m_e}
+\label{eq:thermal-conductivity}
 \end{equation}
 
 \subsubsection{The Wiedmann-Franz law and the temperature dependence of the electrical and thermal conductivities}
-So here we are
+If we look at equation~\ref{eq:thermal-conductivity} for the thermal conductivity and~\ref{eq:sigma} for the electrical resistance, we notice they both contain the same electron gas parameters. Dividing this should give a constant, something known as \textbf{Wiedemann-Franz law}. But it doesn't, why? The answer lies in the fact that we assumed that the collisions times that occurs due to thermal effects are the same as electrical effects. This does not hold, and a nice argument is made for this in the book on pages 90-91. As a reminder we can look at figure~\ref{fig:fermi-change}, the first image is equilibrium, while the second shows typical effects due to current relaxation, while the last image shows how heat relaxes differently, mostly due to the more average effect of the electron states, heat mostly effects states close to the Fermi sphere boundary. This displacement of k states on the x-axis corresponds to an electron velocity in the x-direction. Why the difference exists between thermal and electrical collisions time is due to how phonons and electrons interact, which is described in pages 95-96 in the book, in a kind of hand waviness manner. 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{fermi-change}
+	\includegraphics[width=0.7\textwidth]{fermi-change}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
 	\label{fig:fermi-change}
 \end{figure}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{phonon-electron-scattering}
-	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
-	\label{fig:phonon-electron-scattering}
-\end{figure}
 
 \subsubsection{The Hall effect}
-
+The free electron model is not very good for explaining the hall effect, for fucks sake\ldots We don't even get the same sign for some metals. 
 \section{The effect of the periodic lattice potential - energy bands}
 \subsection{Nearly free electron theory}
+
+The free electron model is shit, let us use a periodic potential instead! We do it by estimating a correction to the free electron energy by using the standard formula of first-order perturbation theory
+\begin{equation}
+\Delta \epsilon = \frac{\int \psi^* V \psi dx}{\int \psi^* \psi dx}
+\end{equation}
+Where $V$ is the difference between the true potential and the constant potential assumed in the calculations for the free electron model, and $\psi$ is the unperturbed wavefunction. We also assume that the potential from the lattice is quite weak.
+
+If we take the free electron potential to be the mean value of the true potential, then the perturbation $V$ for our one-dimensional example can be written as Fourier series in the form 
+\begin{equation}
+	V = - \sum^\infty_{n=1} V_n \cos{(\frac{2\pi n x}{a})}
+\end{equation}
+	where $V_n$ is expected to be positive for a potential with strong negative peaks at the lattice sites. Putting things together we end up with an expression that only evaluates to a value if $k=n\pi/a$. So
+\begin{equation}
+	\Delta \epsilon = \frac{\int dx V_n \cos^2(2\pi n x/a)}{\int dx} = \frac{1}{2} V_n
+\end{equation}
+if $\psi = sin(kx)$, for $\psi = cos(kx)$\footnote{Author need to brush up on quantum mechanics} we get
+\begin{equation}
+	\Delta \epsilon = - \frac{1}{2} V_n
+\end{equation}
+If one does some more proper evaluation, one finds that the energy is as depicted versus the free electron energy $\epsilon(k)$ as in figure~\ref{fig:energy-band}. Here we see \textbf{Energy bands} and \textbf{Energy gaps}.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{energy-band}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:energy-band}
+\end{figure}
+We can see that the $k$ axis in figure~\ref{fig:energy-band} also are divided into region, called \textbf{Brillouin zones}, where the first Brillouin zone correspond to the lowest energy and so on.
+
 \subsection{Classification of crystalline solids into metals, insulators and semiconductors}
+We have so far only looked at the one dimensional case. We will continue to do so here but try and explain why some materials are metals, and conduct electricity, while some are insulators. If we look at the $\epsilon(k)$ relation in figure~\ref{fig:energy-band} we can see that in the first band we have every state contained in the $k$ range $(-\frac{\pi}{a},\frac{\pi}{a})$. This is further zoomed in to in figure~\ref{fig:energy-jump}. We know that $k = 2 \pi p /L$, $L = Na$, and that electrons are fermions with half spin, thus two electrons are able to share the same energy state. Thus we have in the first band space for $2N$ electrons. So if we have monovalent\footnote{One valence electron} atom structure, then we have the situation as depicted in picture $(a)$ of figure~\ref{fig:energy-jump}. So if we add current to the solid, the Fermi space will be moved in the direction, and there is a almost continuous amount of states in each direction of the k-space. This make it very easy to conduct electricity through, we have a metal! On the other hand\ldots if we have 2 valence electrons in the atom then we have the situation depicted in picture $(b)$ of figure~\ref{fig:energy-jump}. Here all 2N states of the first band is taken in an unperturbed state, i.e.\ when we have no current through it. So in order to move a current through it we need so much energy so the electrons can be excited to the next energy band. Thus we have an insulator!
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{energy-jump}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:energy-jump}
+\end{figure}
+
+Problem with this picture in one dimension is that we actually have metals with two valence electrons. But this is solved if we look into a two dimensional structures, cause then we can get overlapping bands in some situations. First we should mention that the energy gap size is directly correlated to the potential strength, so we have larger energy gaps with a higher periodic potential, and smaller with a smaller potential. A smaller potential then is the requirement in order to get overlapping band. That said no matter how low this potential is we still get gaps in the one dimensional case. If we look at figure~\ref{fig:2d-fermi} we can see how we could construct the free electron gas in a simple two dimensional square crystal. In the book we only make a hand waviness argument for saying that with a potential the first energy band should look like figure~\ref{fig:2d-fermi-perturbated}. This argument is made around how the difference looked like in the one dimensional case and then graphically translate it to  two dimension. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{2d-fermi}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:2d-fermi}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{2d-fermi-perturbated}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:2d-fermi-perturbated}
+\end{figure}
+\newpage
+So how does this result in overlapping bands? Well look at the corners! The $|\pmb{k}|$ value there is about $\sqrt{2}$ times larger there! Thus for smaller potential we get and overlap of bands. Then electrons can smoothly start occupying states in the second energy band.
+
+To surmise certain features extends to all crystal, no matter the dimensions.
+\begin{enumerate}
+	\item An odd number of valence electrons in a primitive unit cell leads to metallic behaviour
+	\item An even number of valence electrons per primitive unit cell leads to metallic behaviour \emph{if} there is a band overlap, a semiconductor if there is a small band gap, and an insulator if there is a large band gap.
+\end{enumerate}
+
+\subsection{The tight binding approach}
+\subsubsection{Electron states on a one-dimensional chain}
+\subsubsection{Electron states in diamond, silicon and germanium}
+\subsubsection{Band structure effective masses}
+
+\section{Semiconductors}
+\subsection{Introduction}
+\subsection{Holes}
+\subsection{Methods of providing electrons and holes}
+\subsubsection{Donor and acceptor impurities}
+\subsubsection{Thermal excitation of carriers}
 
 \newpage
 \subsection{New words}
@@ -1200,7 +1265,7 @@ So here we are
 \newpage
 %\begin{thebibliography}{9}
 %\end{thebibliography}
-clearpage
+\clearpage
 \appendix
 \section{Appendix}
 
