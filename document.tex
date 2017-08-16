@@ -1242,25 +1242,285 @@ To surmise certain features extends to all crystal, no matter the dimensions.
 \end{enumerate}
 
 \subsection{The tight binding approach}
-\subsubsection{Electron states on a one-dimensional chain}
-\subsubsection{Electron states in diamond, silicon and germanium}
-\subsubsection{Band structure effective masses}
+The nearly free electron theory has provided even more answer, such as why certain materials are metals and others insulators. It has not, however, been able to give us much insight to the nature of the electron wavefunctions. It also is not suited to describe the covalent bonding by valence electrons in important semiconductor crystals. To further explore the nature of the solid state of matter we look at the tight binding approach!
 
+\subsubsection{Coupled probability amplitudes}
+We start, yet again, with the simplest one dimensional crystal we can use, the one dimensional chain of atoms separated by a distance $a$. When atoms are widely separated, the wavefunctions of the valence electrons will be those of isolated atoms. But as the atoms get closer we expect that the electrons will begin to move from one atom to another. We can see this as a transfer of the electron from state $\phi_n$ to the same state for a neighbouring atom $\phi_{n-1}$ or $\phi_{n+1}$. Thus we should be able to write the wavefunction of the electron as a linear combinations of the states $\phi_n$ on the $N$ atoms in the chain
+\begin{equation}
+	\Psi = \sum^N_{n=1} a_n(t) \phi_n
+\end{equation}
+The time dependent Shrödinger is cumbersome to calculate. We can use the alternative formulation for quantum mechanics which gives the probability $|c_n(t)|^2$ for finding the electron in state $\phi_n$ at time $t$. $c_n(t)$ is \emph{not} equal to the coefficient $a_n(t)$; however, we wish to find the stationary of the system, and for these the time-dependence of $a_n(t)$ and $c_n(t)$ is the same
+\begin{equation}
+	a_n \propto c_n \propto e^{-Et/\hslash}
+\end{equation}	
+where $E$ is the energy of the state. And this alternative formulation(just given here) gives a set of N equations
+\begin{equation}
+	i\hslash \frac{dc_n}{dt} = Bc_n - Ac_{n-1} - Ac_{n+1}
+	\label{eq:alternative-shrodinger}
+\end{equation}
+And the physical interpretation is of course that the two latter terms represent the changes in $c_n$ due to the proximity or transfer with the neighbouring atom. If these terms are removed we get an expression for an electron at an atom $m$
+\[ c_n(0) =
+  \begin{cases}
+    1 & \quad \text{if } m=n \text{ is even}\\
+    0 & \quad \text{otherwise} \\
+  \end{cases}
+\]
+basically the electron sticks to its atom.
+\subsubsection{Electron states on a one-dimensional chain}
+Solving $c_n$ using equation~\ref{eq:alternative-shrodinger} requires us to assume a solution to solve.Looking at the similarity with the one dimensional chain lattice vibration we know to assume
+\begin{equation}
+	c_n = C e^{i(kx_n^0 - \omega t)}
+\end{equation}
+where $x_n^0 = na$ is the equilibrium position of the $n$th atom in the chain. Putting this into equation~\ref{eq:alternative-shrodinger} we get
+\begin{equation}
+	\hslash \omega e^{i(kna - \omega t)} = Be^{i(kna-\omega t)} - Ae^{i[k(n-1) - \omega t]} - Ae^{i[k(n+1) - \omega t]}
+\end{equation}
+Knowing that the energy $\epsilon = \hslash \omega$, we cancel some exponential parts and get
+\begin{equation}
+	\epsilon = B - 2A\cos{(ka)}.
+	\label{eq:alternative-shrodinger-energy}
+\end{equation}
+looking at figure~\ref{fig:tight-bonding} we can see $\epsilon(k)$ plotted. It's worth noting that with more neighbours we would only add harmonics, so it wouldn't change the periodicity of $\epsilon(k)$. With changing values $A$ and $B$ in equation~\ref{eq:alternative-shrodinger-energy} we can obtain other energy bands\footnote{How we solve for these values is not given}, and how these are represented in different ways are showed in figure~\ref{fig:zone-schemes}. Note that each band goes through the solid itself. Thus to obtain the energy levels of electrons corresponding to one atom one just looks at the reduced scheme.
+\begin{figure}[!ht] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{tight-bonding}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:tight-bonding}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{zone-schemes}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:zone-schemes}
+\end{figure}
+On pages 119-121 in the book we have some more real world examples of potentials which could be interesting to look through if interested.
+
+\newpage
+\subsubsection{Electron states in diamond, silicon and germanium}
+Using the same calculations for more complex structures in three dimensions, for example diamonds, we need to modify our wavefunction as 
+\begin{equation}
+	\Psi = \sum_n C e^{i(\pmb{k} \cdot \pmb{r}_n - \omega t)} \phi_n
+\end{equation}
+where the sum is over the lattice points at position $\pmb{r}_n$, thus the standing waves at a given value $\pmb{k}$ is standing waves determined by the periodicity of the lattice. The wave function $\phi_n$ must thus be an orbital appropriate to the basis of the atoms associated with each lattice point, rather then with an isolated atom. Further application of this is showed in the book on pages 122-124.
+
+\subsubsection{Band structure effective masses}
+Time to consider the effective mass again! If we look at the electrons wavepacket now instead of an electron, we could find out the effective mass of an electron instead of an electron itself. We will construct a wavepacket from one energy band, centred on energy $\epsilon$ and the wavenumber $k$. We then want to calculate the motion of the wavepacket in the time interval $\partial t$. To  do this we assume
+\begin{enumerate}
+	\item The velocity of the wavepacket is the group velocity
+		\begin{equation}
+			v = \frac{d \omega}{dk} = \frac{1}{\hslash} \frac{d \epsilon}{d k}
+		\end{equation}
+	\item The motion of the wavepacket resembles that of a classical particle in that its \emph{total} energy remains constant. Thus
+	\begin{equation}
+		\partial \epsilon = - eE \partial x
+	\end{equation}
+\end{enumerate}
+Using these equations we can derive the equation of motion in two forms.
+\begin{equation}
+	\partial k = \partial k = \frac{dk}{d\epsilon} \partial e = \frac{1}{\hslash v} \partial \epsilon
+\end{equation}
+and 
+\begin{equation}
+	\frac{dk}{dt} = \frac{1}{\hslash v} \frac{d \epsilon}{dt} = -\frac{eE}{\hslash}
+\end{equation}
+or more concisely
+\begin{equation}
+	\hslash \frac{dk}{dt} = -eE
+\end{equation}
+By massaging these equations together\footnote{Only algebra, is described in the book on page 126} we get the equation
+\begin{equation}
+	m_e \frac{dv}{dt} = -eE
+\end{equation}
+where
+\begin{equation}
+	m_e = \hslash^2 / \frac{d^2\epsilon}{dk^2}
+\end{equation}
+And we have our effective mass! This can be used to obtain more exact values when used in conjuction with the equation previously derived in the section about the free electron gas. 
+
+If one want to use this for calculating the heat capacity, one must remember to only use values that exists on the Fermi surface.
+
+\newpage
 \section{Semiconductors}
 \subsection{Introduction}
+For certain materials the highest occupied energy is completely full at zero temperature, this band is called the \textbf{valence band}, and the lowest unoccupied band is called the \textbf{conduction band}. For semiconductor the behavior is mostly related to the electron states close to the top of the valence band and t he bottom of the conduction band. We have these bands depicted in figure~\ref{fig:semiconductor-band}. Since we're dealing with states close to a maximum or minimum of energy we can take t he dispersion curve $\epsilon(k)$ to be parabolic to a good approximation, we get
+\begin{align}
+	\text{Conduction band} \quad &\epsilon = E_g + \frac{\hslash^2 k^2}{2m_e} \\
+	\text{Valence band} \quad &\epsilon = - \frac{\hslash^2 k^2}{2m_h} \\
+\end{align}
+To calculate all the valance band electrons in order to figure out the properties of a nearly full valence band can be cumbersome. But there exists an alternative! We can look at the holes left behind. This hole can be looked at as a particle with positive charge $|e|$, positve mass $m_h$ and energy $\hslash^2 k^2/2m_h$, positve mass $m_h$ and energy $\hslash^2 k^2/2m_h$.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{semiconductor-band}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:semiconductor-band}
+\end{figure}
 \subsection{Holes}
+The energy of a hole in state $\pmb{k}$ must be the opposite of the energy for an electron.
+\begin{equation}
+	\epsilon_h q \frac{\hslash^2 k^2}{2m_h}
+\end{equation}
+Similarly the electron momentum $\hslash \pmb{k}$ must also be reversed
+\begin{equation}
+	\pmb{p}_h = -\hslash \pmb{k}
+\end{equation}
+
+In the book there is a bit more development on all arguments here but for holes we have a similar equation of motion as for electrons, namely
+\begin{equation}
+	m_h(\frac{d\pmb{v}_h}{dt} + \frac{\pmb{v}_h}{\tau_h}) = e(\pmb{E} + \pmb{v}_h \times \pmb{B}).
+\end{equation}
+and to tie the sack together we note that a current going through a full band, is in reality nothing\ldots nothing changes! So we look at the reverse current created by the positive charge from the hole instead. So the current $\pmb{j} = - (-e) \pmb{v}$, where $pmb{v}$ is the group velocity of the electron, same as that of a hole in the same state. The current thus ends up being $e\pmb{v}_h$. Since the total current can be written as the sum of the contributions from the electrons in t he conduction band and holes in the valence band, these are referred to as the \textbf{charge carriers} in the semiconductor.
 \subsection{Methods of providing electrons and holes}
+
 \subsubsection{Donor and acceptor impurities}
+If we have a crystal with a full valence band but empty conduction band, we have an insulator. We can however add impuruties to change the properties of the material. If we create a substitutional impurity\footnote{one atom takes the place of where another would have been} with an atom with an extra valence electron, we all of a sudden have one more electron that needs somewhere to be. What we then do is to treat this electron as an electron orbiting a hydrogen atom. This approximation is good if the impurities are so spread out in the crystal that they don't interact with each other. This creates a new Donor impurity level, which represents a new energy level which is much closer to the conduction band then the valence band is. This effect is depicted in figure~\ref{fig:impurities}, where we have the donor level indicating the much lower energy to get some electrons into the conduction band.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{impurities}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:impurities}
+\end{figure}
+Something that can be seen in figure~\ref{fig:impurities} is the acceptor level. Basically this is the reverse effect when you add an impurity with one less electron. This create a state in which an electron can live, thus creating a hole in the valence band. This is another way to make material conductive. Note that all this is derived in pages 136-138 in the book under the assumption that the impurities are very far away from each other.
+\newpage
 \subsubsection{Thermal excitation of carriers}
+We want to calculate the number of charge carries at any temperature $T$. So a good place to start is the Fermi distribution function which tells us the probability of occupation of a state of energy $\epsilon$
+\begin{equation}
+f(\epsilon, T) = \frac{1}{e^{(\epsilon - \mu)/k_B T} + 1}.
+\end{equation}
+With that we also need the density of states!
+\begin{align}
+	\text{Conduction band} \quad & g(\epsilon) = \frac{V}{2\pi^2 \hslash^3} (2m_e)^{3/2}(\epsilon - E_G)^{1/2} \\
+	\text{Valence band} \quad &g(\epsilon) = \frac{V}{2\pi^2 \hslash^3} (2m_h)^{3/2}(-\epsilon)^{1/2} \\
+\end{align}
+We have plotted these functions in figure~\ref{fig:fermi-level}. As we can see the Fermi distribution has a steep fall of at what's called the Fermi level. This drop off depends highly on the value of the chemical potential $\mu$. We refer to the Fermi level when the distribution depends on $\mu(T)$ and call it the Fermi energy when $\mu(0)$. We use this property to estimate the Fermi distribution in the conduction band to be
+\begin{equation}
+	f(\epsilon) \approx \frac{1}{e^{(\epsilon-\mu)/k_B T}} = e^{(\mu - \epsilon)/k_B T}
+\end{equation}
+So to find the number of electrons per unit volume in the conduction band we integrate!
+\begin{equation}
+	n = \frac{1}{V} \int^\infty_{E_G} f(\epsilon)g(\epsilon) d \epsilon = N_C e^{(\mu - E_G)/k_B T}
+	\label{eq:concentration-electrons}
+\end{equation}
+where 
+\begin{equation}
+	N_C = 2(\frac{2\pi m_e k_B T}{h^2})^{3/2}.
+\end{equation}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{fermi-level}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:fermi-level}
+\end{figure}
 
-\newpage
-\subsection{New words}
-\begin{itemize}
-	\item 
-	\item
-\end{itemize}
-\newpage
+To calculate the probability that a state in the valence band is occupied by a hole is $1-f(\epsilon)$, and doing a similar treatment as for the conduction electrons, keeping in mind the different limits, we get the number of holes per unit volume to be
+\begin{equation}
+	p = N_v e^{-\mu/k_B T}
+	\label{eq:concentration-holes}
+\end{equation}
+where
+\begin{equation}
+	N_V = 2(\frac{2\pi m_h k_B T}{h^2})^{3/2}
+\end{equation}
 
+It's also worth nothing that the product of the hole concentration and the conduction electron concentration is independent of the chemical potential, i.e.
+\begin{equation}
+	np = N_c N_v e^{-E_g/k_B T}
+	\label{eq:mass-action}
+\end{equation}
+\subsubsection{Intrinsic behaviour}
+In a pure semiconductor, the only holes that can exist is the hole left behind by electrons excited into the conduction band. In other words
+\begin{equation}
+	n_i = p_i = (N_c N_v)^{1/2} e^{-E_G/2k_BT}
+\end{equation}
+We have the same concentration of holes as we do of conduction electrons. The subscript $i$ identifies these concentrations as the \textbf{intrinsic carrier concentrations}. Using equations~\ref{eq:concentration-electrons}~\ref{eq:concentration-holes} we can get the chemical potential to be
+\begin{equation}
+	\mu = \frac{1}{2} E_G + \frac{3}{4} k_B T ln(m_h/m_e)
+\end{equation}
+and since usually $k_B T \ll E_g$ the Fermi level is normally in the middle of the band gap.
+\subsubsection{Extrinsic behaviour}
+To find the chemical potential in a semiconductor with acceptor and donors, we require that every negative charge must have a positive charge, thus making the metal electrically neutral. This is something that is obvious when you think of the fact that the material must be electrically neutral when formed, we thus have
+\begin{equation}
+	n + N^-_A = p + N^+_D
+	\label{eq:neutral}
+\end{equation}
+where $N^-_A$ is the concentration of acceptors and $N^+_D$ is the concentration of donors, given in term of the Fermi function by
+\begin{equation}
+	N^+_D = N_D [1-f(E_G - E_D)]
+\end{equation}
+and
+\begin{equation}
+	N^-_A = N_A f(E_A)
+\end{equation}
+By inserting the equations~\ref{eq:concentration-electrons}~\ref{eq:concentration-holes} for n and p in equation~\ref{eq:neutral} we can determine $\mu$. This is not possible to do analytically for but a few special limiting cases though.
+
+A common situation is to have impurities of both forms. Lets now assume that we have much more donors then acceptors. Acceptor levels have lower energy, thus they will be filled by electrons from donors at $T=0$. Thus we have $N_D-N_A$ donor levels un-ionized. Due to the Fermi level only being partly occupied at T=0, we have $\mu = E_G - E_D$\footnote{For some reason}. At very low temperatures ($k_B T \ll E_D$), where the number of ionized donors has not changed much, we then have the from equation~\ref{eq:concentration-electrons} that the conduction electron concentration is
+\begin{equation}
+	n \approx N_C e^{-E_D/k_B T}
+\end{equation}
+if $k_B T \ll e_D$. Due to the fact that $E_D \ll E_G$ the electron concentration is much greater then for the intrinsic concentration given earlier. But given the law of mass action (eq~\ref{eq:mass-action}), the hole concentration is very much less then its intrinsic value. These kind of materials with lots more electrons in the conduction band then holes in the valence band, are called \textbf{n-type material}, where electrons are called the \textbf{majority carrier} and the holes are the \textbf{minority carrier}. The opposite situation where holes are the majority carrier, are called \textbf{p-type material}. The p-type material at absolute zero has a Fermi level $\mu = E_A$, thus given us the hole concentration
+\begin{equation}
+	p \approx N_V e^{-E_A/k_B T}
+\end{equation}
+when $k_B T \ll E_A$. 
+
+But this was at $T=0$! Who da fuck operates on this level anyway? Even in space we have like 2 kelvin at least due to background radiation. So if we look the n-type material, at a temperature where all the donors and acceptors are ionized equation~\ref{eq:neutral} must give us
+\begin{equation}
+	n = N_D - N_A 
+\end{equation}
+Thus using equation~\ref{eq:concentration-electrons} with this we get
+\begin{equation}
+	\mu = E_G - k_B T \ln{(\frac{N_C}{N_D-N_A})}
+\end{equation}
+And must semiconductors operate on a level where all impurities are ionized at room temperature. But when increasing the temperature further we get that the hole concentration approaches the electron concentration and voila, we have intrinsic behaviour. This transition of behaviour is depicted in figure~\ref{fig:extrinsic}.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{extrinsic}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:extrinsic}
+\end{figure}
+
+\subsection{Absorption of electromagnetic radiation}
+Looking at figure~\ref{fig:absorption} we can see that we have absorption of ems at certain energies. Actually we have two different energies where we have jumps of absorption for germanium. The first one at $T=77k$ seem to occur at about 0.73eV while the second, much steeper increase in absorption, occurs at 0.87eV. Why is this? Why do we seemingly have two energy gaps (The absorption is caused by electrons being excited into the valence band). Well look at figure~\ref{fig:absorption-jump}. The first jump is associated with a energy change \emph{and} momentum change (change in $\pmb{k}$). While the second jump is a straight jump which makes the electrons only change in energy level, but not momentum. 
+
+This momentum is taken from a phonon in the lattice in the beginning, this because a photon cannot carry that much momentum. So electrons which is high up in the valence band can be excited by a smaller energy as long as its momentum changes too. This is a more gradual process since with more energy different amount of momentum changes(from different phonons) is used in the transition. But when the photons have enough energy to create a vertical jump for the electrons across the bands, then we get a much steeper jump in absorption and then it increases linearly, albeit not very steeply. Which seem to concur with how the bands looks.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{absorption}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:absorption}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{absorption-jump}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:absorption-jump}
+\end{figure}
+\subsection{Transport properties}
+To describe the motion of the carriers in the presence of electric and magnetic fields we use these equations (only for reference)
+\begin{align}
+	m_e (\frac{d\pmb{v}_e}{dt} + \frac{\pmb{v}_e}{\tau_e}) &= -e\pmb{E} - e\pmb{v}_e \times \pmb{B} \\
+	m_h (\frac{d\pmb{v}_h}{dt} + \frac{\pmb{v}_h}{\tau_h}) &= e\pmb{E} + e\pmb{v}_h \times \pmb{B} \\
+\end{align}
+\subsubsection{Electrical conductivity}
+When we have only a dc-electric field the equation of motions becomes
+\begin{align}
+	\pmb{v}_e &= - \mu_e \pmb{E} \\
+	\pmb{v}_h &=  \mu_h \pmb{E} 
+\end{align}
+with
+\begin{align}
+	\mu_e &= \frac{e\tau_e}{m_e} \\
+	\mu_h &= \frac{e\tau_h}{m_h} 
+\end{align}
+with the resulting current
+\begin{equation}
+	\pmb{j} = -ne\pmb{v}_e + pe\pmb{v}_h =\ldots= \sigma \pmb{E}
+\end{equation}
+where 
+\begin{equation}
+	\sigma = n e \mu_e + p e \mu_h
+\end{equation}
+
+\subsubsection{Hall effect}
 
 \newpage
 %\begin{thebibliography}{9}
