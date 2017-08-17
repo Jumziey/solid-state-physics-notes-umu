@@ -1544,7 +1544,10 @@ where $L$ is the self-inductance and $R$ is the resistance of the loop. If this 
 \subsubsection{Type I superconductors}
 There are two classes of superconductors, depending on how the interact with a magnetic field. \textbf{Type I} superconductors has the peculiar effect of being distrusted\footnote{I.e.\ no longer superconductive} by a  modest magnetic field $B_c$, known as the \textbf{Critical field}. \textbf{Type II} superconductors behave differently under a magnetic field, but in this section we will only look at type I superconductors.
 
-$B_c$ as a function of temperature for mercury is seen in figure~\ref{fig:bc}
+$B_c$ as a function of temperature for mercury is seen in figure~\ref{fig:bc}. To a good approximation the temperature dependence of $B_c$ is
+\begin{equation}
+	B_c(T) = B_c(0) [1-(\frac{T}{T_c})^2]
+\end{equation}
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{bc}
