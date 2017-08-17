@@ -1518,10 +1518,50 @@ with the resulting current
 where 
 \begin{equation}
 	\sigma = n e \mu_e + p e \mu_h
+	\label{eq:conductivity-semiconductor}
 \end{equation}
+From equation~\ref{eq:conductivity-semiconductor} we can see how the conductivity depends  on the charge carriers through $c$ and $p$. 
 
+This has some interesting effects on the conductivity of a semiconductor. Looking at figure~\ref{fig:semiconductor-conductivity} we can see how the conductivity relates to temperature in different impurity levels. What's mainly effected in our conductivity equation is the collision time at different temperatures.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{semiconductor-conductivity}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:semiconductor-conductivity}
+\end{figure}
+\newpage
 \subsubsection{Hall effect}
+Basically, if we use the electromagnetic motion equations for charge carriers in semiconductors the hall effect can obtain a positive and negative sign depending on what carrier is the major carrier. If its holes it's positive, if its electrons it's negative.
 
+\section{Superconductivity}
+\subsection{Introduction}
+Its difficult to measure the resistance in superconductors, since it has none!\footnote{well at least under its critical temperature}. What one do is look at the decay of the current in a loop of superconductors. The current should decay with the time constant
+\begin{equation}
+	\tau = L/R
+\end{equation}
+where $L$ is the self-inductance and $R$ is the resistance of the loop. If this is not observed then we see that as superconductivity.
+\subsection{Magnetic properties of superconductors}
+\subsubsection{Type I superconductors}
+There are two classes of superconductors, depending on how the interact with a magnetic field. \textbf{Type I} superconductors has the peculiar effect of being distrusted\footnote{I.e.\ no longer superconductive} by a  modest magnetic field $B_c$, known as the \textbf{Critical field}. \textbf{Type II} superconductors behave differently under a magnetic field, but in this section we will only look at type I superconductors.
+
+$B_c$ as a function of temperature for mercury is seen in figure~\ref{fig:bc}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{bc}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:bc}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{flux-expulsion}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:flux-expulsion}
+\end{figure}
+
+
+\section{Crystal Dynamics - again!}
+\subsection{Lattice vibration of one-dimensional crystals}
+\subsubsection{chain of two types of atoms}
 \newpage
 %\begin{thebibliography}{9}
 %\end{thebibliography}
