@@ -1,6 +1,10 @@
 \documentclass[11pt]{article}
 \usepackage{report}
 
+
+\usepackage{silence}
+\WarningFilter{latex}{Text page 83 contains only floats}
+
 \title{Solid State Physics \\ Notes}
 \author{Jesper Vesterberg (jeve0010@student.umu.se)}
 
@@ -982,7 +986,7 @@ where $V$ is the volume of the crystal, and $u_k(\pmb{r})$ is a periodic functio
 The very fact that that wavefunctions in a crystal can be expressed on this form is \textbf{Bloch's theorem}.
 	
 \subsection{Normal modes and the reciprocal lattice}
-\subsubsection{periodicity of the dispersion relation}
+\subsubsection{periodicity of the dispersion relation}\label{sec:dispersion}
 A normal mode of the crystal described by a function of the form of equation~\ref{eq:bloch-wavefunction} for some wavevector $\pmb{k}$ can also be described by function of the same form but with a different wavevector $\pmb{k}'$ related to $\pmb{k}$ by
 \begin{equation}
 	\pmb{k}' = \pmb{k} + \pmb{G}_0
@@ -1546,14 +1550,16 @@ There are two classes of superconductors, depending on how the interact with a m
 
 $B_c$ as a function of temperature for mercury is seen in figure~\ref{fig:bc}. To a good approximation the temperature dependence of $B_c$ is
 \begin{equation}
-	B_c(T) = B_c(0) [1-(\frac{T}{T_c})^2]
+	B_c(T) = B_c(0) [1-(\frac{T}{T_c})^2].
 \end{equation}
+Given that there exists a critical field, there  also exists a critical current for flow along a wire, which occurs when the field due to the current equals $B_c$. This is known as \textbf{Silsbee hypothesis}. 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{bc}
 	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
 	\label{fig:bc}
 \end{figure}
+In figure~\ref{fig:flux-expulsion} we can see the screening known as the \textbf{Meissner effect}. Basically the screening make the superconductor act as a perfect diamagnet opposite to the applied magnetic field under $B_c$. Thus the superconductor has a susceptibility of $\xi = -1$ in this region.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{flux-expulsion}
@@ -1565,7 +1571,162 @@ $B_c$ as a function of temperature for mercury is seen in figure~\ref{fig:bc}. T
 \section{Crystal Dynamics - again!}
 \subsection{Lattice vibration of one-dimensional crystals}
 \subsubsection{chain of two types of atoms}
+Read in book at your leisure
+
+\section{Crystal dynamics}
+\subsection{Heat capacity from lattice vibrations}
+\subsubsection{The density of states}
+Periodic boundary condition for one-dimensional crystals yields the possible wavenumbers
+\begin{equation}
+	k = \frac{2 \pi p}{L}
+\end{equation}
+where $L = Na$ and $N$ is the number of atoms, $a$ is the interatomic spacing. The k density is can be given in the range $k \to k+dk$ to be
+\begin{equation}
+	\rho_r(k) dk = \frac{L}{2\pi} dk
+\end{equation}
+Note here that the integer $p$ can be both positive and negative. This hold for running waves, or periodic boundary conditions on the crystal. I we have fixed boundary condition the normal modes are standing waves, and we have an integral number of half-wavelengths in the chain so $L = n \lambda /2$, $k=2\pi/\lambda = n \pi/L$.  We then get in the range $k \to k +dk$
+\begin{equation}
+	\rho_s(k) dk  = \frac{L}{\pi} dk
+\end{equation}
+So we have twice as many normal modes!  But the difference too is only positive integer in the k so we get half again, and voila! The same amount of normal modes.
+
+To find the density of states per unit frequency range $g(\omega)$ we can use $dn$ - number of modes with frequency $\omega \to \omega + d \omega$ corresponding to the range $k \to k + dk$ we have
+\begin{equation}
+	dn = \rho_s(k) dk = g(\omega) d\omega
+\end{equation}
+and from this we get
+\begin{equation}
+	g(\omega) = p_s(k) \frac{dk}{d \omega}.
+	\label{eq:states-freq}
+\end{equation}
+Using a previously obtained result for $\omega(k)$ for the one-dimensional crystal we thus get
+\begin{equation}
+	g(\omega) = \frac{2N}{\pi} (\frac{4K}{M} - \omega^2)^{-1/2}
+\end{equation}
+The energy of the lattice vibration is obtained by integrating the energy of a single oscillator(previously derived) of the distribution of vibration frequencies, thus
+\begin{equation}
+	E = \int^\infty_0 (\frac{1}{2} \hslash \omega + \frac{\hslash \omega}{e^{\hslash \omega/k_B T} - 1}) g(\omega ) d\omega
+	\label{eq:vibration-energy}
+\end{equation}
+Difficult to calculate this integral, but you can do some analysis in some cases, and computers in other. Especially in high or low temperature limits its easier to do an analysis.
+
+In the book we then go over to 2d and 3d crystals. Here i will only give the result.
+
+\paragraph{3d-crystal}
+density of k-state
+\begin{equation}
+	g(k) = \frac{Vk^2}{2\pi^2}
+\end{equation}
+Density of states per unit frequency range
+\begin{equation}
+	g(\omega) = g(k)\frac{dk}{d\omega} = \frac{Vk^2}{2\pi^2} \frac{dk}{d\omega}
+\end{equation}
+But to solve we need to look at limits
+\subsubsection{The high and low temperature limits}
+At high temperatures we get the heat capacacity
+\begin{equation}
+	C = 3Nk_B
+\end{equation}
+If we have a temperature over the characteristic temperature $\Theta = \hslash \omega/k_B$.
+
+For low temperatures we can see $\omega = v_s k$ for long-wavelength acoustic modes. Using this and noting the are two transversal branches and one longitudal branch in three dimensions we can figure out the density of states per unit frequency, but into the integral for the energy and differentiate on $T$ to get the heat capacity 
+\begin{equation}
+	C = \frac{2V\pi^2 k_B}{15} (\frac{1}{v_L^3} + \frac{2}{v_T^3}) (\frac{k_B T}{\hslash})^3
+\end{equation}
+Which gives us the empirical dependency on $T^3$ for low temperatures!
+\subsubsection{The Debye interpolation scheme}
+Intressting chapter which looks at when certain simplications holds.
+
+\subsection{Anharmonic effects}
+We have assumed in the one-dimensional case that atoms interact through hooks law (springs). But in reality its lennard jones potential, which has a stronger repelling force when atoms are close then attracting force when they are far away. This only got approximated to hooks through our taylor expansion of the potential. Adding additional terms called \textbf{anhormonic terms} from the approximation gives us insight into things like thermal expansion. 
+
+\subsubsection{Thermal expansion}
+The volume coefficient of thermal expansion is defined as
+\begin{equation}
+	\beta = \frac{1}{V} (\frac{\partial V}{\partial T})_p
+\end{equation}
+To help the analysis of why $\beta$ vanishes in the harmonic limit we rewrite it as
+\begin{equation}
+	\beta = \frac{1}{B} (\frac{\partial p}{\partial T})_V
+\end{equation}
+Where 
+\begin{equation}
+	B = - V (\frac{\partial p }{\partial V})_T
+\end{equation}
+We know that $p$ is dependent on helmots free energy through
+\begin{equation}
+	p = - (\frac{\partial F}{\partial V})_T
+\end{equation}
+and that in the harmonic approximation we have
+\begin{equation}
+	F = E_{pot} + F_{modes}
+\end{equation}
+Where $E_{pot}$ is the temperature independent potential energy associated with the interatomic interactions, and $F_{modes}$ is the free energy associated with the lattice vibrations.  We're given the terms for the energies related to the energy of the lattice vibration in the harmonic level, and see it does not have the volume dependence, thus reducing $p$ to zero. Thus we have no thermal expansion. 
+
+But with the extra anharmonic terms we get the volume dependence and $p$ becomes (if througly calculated)
+\begin{equation}
+	p = - \frac{d E_{pot}}{dV} - \sum_{modes} \hslash \frac{\partial \omega}{\partial V} (\frac{1}{2} + \frac{1}{e^{\hslash \omega/k_B T)} - 1})
+\end{equation}
+And through assuming that the volume dependence of all lattice mode frequencies is the same and can be represented by the simple power law $\omega \propto V^{-\gamma}$ we get
+\begin{equation}
+p = - \frac{dE_{pot}}{dV} + \frac{\gamma E_{modes}}{V}
+\end{equation}
+This gives us a $\beta$ of
+\begin{equation}
+	\beta = \frac{\gamma C_V}{BV}
+\end{equation}
+Thus the expansion relates directly to how the heat capacity changes with temperature.
+
+
+\section{Waves in crystals}
+\subsection{Normal modes and the reciprocal lattice}
+\subsubsection{Brillouin zones and the plotting of dispersion relations}
+When looking at one-dimensional electron dispersion relations we found it useful to split $\pmb{k}$-space into Brillouin zones at the $k$ values for which Bragg diffraction of the electron waves occurred. This diffraction creates standing waves instead of running waves at the zone boundaries. The energy gaps that occur under the periodic potential also happen to exists on the Brillouin zones. In a one-dimensional crystal the boundaries of the $n$th are given in terms of the lattice spacing $a$ through
+\begin{equation}
+	(n-1)\pi/a < |k| < n \pi / a
+\end{equation}	
+And each zones occurs two times, symmetrically around the origin. 
+
+If we use a more general diffraction rule as that one given earlier in section~\ref{sec:dispersion}. Using this and some simplification we can generalize using vectors and we get $\pmb{k}$ for an incoming wave must satisfy
+\begin{equation}
+	2\pmb{k} \cdot \pmb{G} = G^2
+\end{equation}
+where $\pmb{G}$ is any vector of the reciprocal lattice. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{geo-int}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:geo-int}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{brillouin-2d}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:brillouin-2d}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{brillouin-weigner}
+	\caption{Copied from Solid State Physics by J.R. Hook and H.E. Hall}
+	\label{fig:brillouin-weigner}
+\end{figure}
+
 \newpage
+
+
+
+
+
+
+
+
+
+
+
+
 %\begin{thebibliography}{9}
 %\end{thebibliography}
 \clearpage
